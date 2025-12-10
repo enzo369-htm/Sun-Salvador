@@ -24,7 +24,7 @@ function Navbar() {
       role="navigation"
       aria-label="Navegación principal"
       style={{ 
-        background: 'rgba(0, 19, 255, 0.75)',
+        background: 'rgba(255, 28, 218, 0.75)',
         backdropFilter: 'blur(10px)',
         borderBottom: '4px solid #F2C12E',
         boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
