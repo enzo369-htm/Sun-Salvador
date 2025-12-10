@@ -6,7 +6,7 @@ function DatePlace() {
       {/* Montañas al fondo */}
       <div className="absolute bottom-0 left-0 w-full opacity-25 pointer-events-none">
         <svg viewBox="0 0 1200 180" className="w-full h-auto">
-          <path d="M0,180 Q150,120 300,80 T600,60 L700,100 Q800,140 900,180 Z" fill="#0C2FF2" stroke="#000" strokeWidth="3" />
+          <path d="M0,180 Q150,120 300,80 T600,60 L700,100 Q800,140 900,180 Z" fill="#0013FF" stroke="#000" strokeWidth="3" />
           <path d="M480,100 Q540,70 600,60 Q660,80 700,100" fill="#FFF" stroke="#000" strokeWidth="2" />
         </svg>
       </div>
@@ -22,7 +22,7 @@ function DatePlace() {
       </div>
       
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="border-8 border-black inline-block w-full text-center mb-12 py-4" style={{ backgroundColor: '#0C2FF2' }}>
+        <div className="border-8 border-black inline-block w-full text-center mb-12 py-4" style={{ backgroundColor: '#0013FF' }}>
           <h2 className="text-6xl md:text-7xl font-black tracking-wider text-white" style={{
             textShadow: `
               3px 3px 0px #FBBF24,
@@ -42,7 +42,7 @@ function DatePlace() {
           <div className="border-8 border-black p-10 transform hover:scale-110 hover:rotate-1 transition-all duration-300
                           shadow-[12px_12px_0px_black] hover:shadow-[16px_16px_0px_black]" style={{ backgroundColor: '#F2C12E' }}>
             <div className="flex items-start space-x-4">
-              <div className="w-24 h-24 border-4 border-black flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#0C2FF2' }}>
+              <div className="w-24 h-24 border-4 border-black flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#0013FF' }}>
                 <Calendar className="w-12 h-12 text-white" strokeWidth={3} />
               </div>
               <div>
@@ -51,7 +51,7 @@ function DatePlace() {
                   Sábado 17
                 </p>
                 <p className="text-black text-2xl font-black mt-1">de enero</p>
-                <p className="text-xl font-black mt-2" style={{ color: '#0C2FF2' }}>2025</p>
+                <p className="text-xl font-black mt-2" style={{ color: '#0013FF' }}>2025</p>
               </div>
             </div>
           </div>
@@ -59,7 +59,7 @@ function DatePlace() {
           <div className="border-8 border-black p-10 transform hover:scale-110 hover:-rotate-1 transition-all duration-300
                           shadow-[12px_12px_0px_black] hover:shadow-[16px_16px_0px_black]" style={{ backgroundColor: '#F2C12E' }}>
             <div className="flex items-start space-x-4">
-              <div className="w-24 h-24 border-4 border-black flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#0C2FF2' }}>
+              <div className="w-24 h-24 border-4 border-black flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#0013FF' }}>
                 <MapPin className="w-12 h-12 text-white" strokeWidth={3} />
               </div>
               <div>
@@ -68,7 +68,7 @@ function DatePlace() {
                   Av. Bolivia
                 </p>
                 <p className="text-black text-2xl font-black mt-1">1501</p>
-                <p className="text-lg font-black mt-2" style={{ color: '#0C2FF2' }}>San Salvador</p>
+                <p className="text-lg font-black mt-2" style={{ color: '#0013FF' }}>San Salvador</p>
               </div>
             </div>
           </div>
@@ -89,9 +89,9 @@ function MiniCactus() {
       <line x1="37" y1="85" x2="53" y2="85" stroke="#000" strokeWidth="1.5" />
       <line x1="37" y1="100" x2="53" y2="100" stroke="#000" strokeWidth="1.5" />
       <line x1="37" y1="115" x2="53" y2="115" stroke="#000" strokeWidth="1.5" />
-      <circle cx="45" cy="38" r="7" fill="#F22ED2" stroke="#000" strokeWidth="2.5" />
-      <circle cx="39" cy="44" r="5" fill="#F22ED2" stroke="#000" strokeWidth="2" />
-      <circle cx="51" cy="44" r="5" fill="#F22ED2" stroke="#000" strokeWidth="2" />
+      <circle cx="45" cy="38" r="7" fill="#FF1CDA" stroke="#000" strokeWidth="2.5" />
+      <circle cx="39" cy="44" r="5" fill="#FF1CDA" stroke="#000" strokeWidth="2" />
+      <circle cx="51" cy="44" r="5" fill="#FF1CDA" stroke="#000" strokeWidth="2" />
     </svg>
   );
 }

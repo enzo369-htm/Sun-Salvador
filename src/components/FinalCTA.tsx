@@ -1,66 +1,128 @@
+import { useState, useEffect, memo, KeyboardEvent } from 'react';
+
 function FinalCTA() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const scrollToTickets = () => {
-    document.getElementById('tickets')?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById('tickets');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      element.setAttribute('tabIndex', '-1');
+      element.focus();
+    }
+  };
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      scrollToTickets();
+    }
   };
 
   return (
-    <section className="py-24 px-4 relative overflow-hidden">
+    <section className="py-12 md:py-24 px-3 md:px-4 relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
-        <div className="inline-block px-8 py-4" style={{
-          backgroundColor: 'rgba(242, 46, 210, 0.4)',
+        {/* Contenedor único con ambos textos */}
+        <div className="p-5 md:p-8 lg:p-12" style={{
+          backgroundColor: 'rgba(255, 28, 218, 0.4)',
           border: '6px solid #000',
           boxShadow: `
             15px 15px 0px rgba(0,0,0,0.9),
             30px 30px 0px rgba(0,0,0,0.5),
-            inset 0 0 25px rgba(242, 46, 210, 0.2)
+            inset 0 0 25px rgba(255, 28, 218, 0.2)
           `,
           backdropFilter: 'blur(10px)'
         }}>
-          <p className="text-2xl md:text-3xl font-black tracking-wide leading-tight text-white" style={{
-            textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)',
+          {/* Título */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide leading-tight mb-4 md:mb-6" style={{
+            color: '#FFF',
+            fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+            fontSize: 'clamp(1.2rem, 4vw, 2.5rem)',
+            fontWeight: 400,
+            textShadow: `
+              3px 3px 0px #000,
+              5px 5px 0px rgba(0,0,0,0.8),
+              0 0 10px rgba(0,0,0,0.5)
+            `,
+            WebkitTextStroke: 'clamp(2px, 0.4vw, 3px) #000',
+            WebkitTextFillColor: '#FFF',
+            paintOrder: 'stroke fill',
+            letterSpacing: '0.05em'
+          }}>
+            La primera edición no se repite.
+          </h2>
+
+          {/* Texto descriptivo */}
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-wide leading-relaxed text-white" style={{
+            fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+            fontSize: 'clamp(1rem, 3vw, 1.8rem)',
+            fontWeight: 400,
+            letterSpacing: '0.05em',
+            textShadow: `
+              3px 3px 0px #000,
+              5px 5px 0px rgba(0,0,0,0.8),
+              0 0 10px rgba(0,0,0,0.5)
+            `,
+            WebkitTextStroke: 'clamp(2px, 0.4vw, 3px) #000',
+            WebkitTextFillColor: '#FFF',
+            paintOrder: 'stroke fill',
             filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.6))'
           }}>
-            SUMATE AL NACIMIENTO
+            Viví la noche que va a marcar el inicio de una nueva era en la música alternativa de Jujuy.
           </p>
         </div>
 
-        <div className="inline-block px-8 py-4 max-w-2xl" style={{
-          backgroundColor: 'rgba(242, 46, 210, 0.4)',
-          border: '6px solid #000',
-          boxShadow: `
-            15px 15px 0px rgba(0,0,0,0.9),
-            30px 30px 0px rgba(0,0,0,0.5),
-            inset 0 0 25px rgba(242, 46, 210, 0.2)
-          `,
-          backdropFilter: 'blur(10px)'
-        }}>
-          <p className="text-2xl md:text-3xl font-black tracking-wide leading-tight text-white" style={{
-            textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)',
-            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.6))'
-          }}>
-            SÉ PARTE DE LA HISTORIA<br />El primer festival de rock en Jujuy está por comenzar
-          </p>
-        </div>
-
+        {/* Botón grande final */}
         <div className="inline-block" style={{
-          backgroundColor: 'rgba(242, 46, 210, 0.4)',
+          backgroundColor: 'rgba(255, 28, 218, 0.4)',
           border: '6px solid #000',
           boxShadow: `
             15px 15px 0px rgba(0,0,0,0.9),
             30px 30px 0px rgba(0,0,0,0.5),
-            inset 0 0 25px rgba(242, 46, 210, 0.2)
+            inset 0 0 25px rgba(255, 28, 218, 0.2)
           `,
           backdropFilter: 'blur(10px)',
-          padding: '1.5rem 2rem'
+          padding: isMobile ? '1rem 1.5rem' : '1.5rem 2rem'
         }}>
           <button
-            onClick={scrollToTickets}
-            className="group relative px-12 py-7 text-white font-black text-3xl md:text-4xl
-                       transition-all duration-300 transform hover:scale-110
-                       active:scale-95 inline-block"
-            style={{ backgroundColor: 'transparent', textShadow: '3px 3px 0px black' }}
+            onClick={() => {
+              scrollToTickets();
+              // Tracking de evento (preparado para analytics)
+              // gtag('event', 'click', { event_category: 'CTA', event_label: 'Comprar Entrada Ahora' });
+            }}
+            onKeyDown={handleKeyDown}
+            className="group relative px-6 py-4 md:px-12 md:py-7 font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl
+                       transition-all duration-300 transform hover:scale-110 focus:scale-110
+                       active:scale-95 focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:ring-offset-2
+                       inline-block cursor-pointer min-h-[44px]"
+            aria-label="Comprar entrada ahora - Ir a sección de entradas"
+            style={{
+              backgroundColor: 'transparent',
+              color: '#FF1CDA',
+              fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+              fontSize: 'clamp(1.2rem, 4vw, 2.5rem)',
+              fontWeight: 400,
+              letterSpacing: '0.05em',
+              textShadow: `
+                8px 12px 0px #000,
+                10px 14px 0px rgba(0,0,0,0.8)
+              `,
+              WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
+              WebkitTextFillColor: '#FF1CDA',
+              paintOrder: 'stroke fill',
+              filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))'
+            }}
           >
-            ¡QUIERO MI ENTRADA!
+            COMPRAR ENTRADA AHORA
           </button>
         </div>
 
@@ -70,4 +132,4 @@ function FinalCTA() {
 }
 
 
-export default FinalCTA;
+export default memo(FinalCTA);

@@ -1,14 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo, useCallback } from 'react';
 
 function About() {
   const phrases = [
-    "Sun Salvador nace en Jujuy para devolverle a la ciudad un espacio donde la música y el arte puedan respirar de nuevo.",
-    "Durante años la escena local buscó un lugar donde expresarse; este festival surge del deseo de encender ese movimiento artístico que nunca dejó de latir.",
-    "Sun Salvador reúne a quienes aman la música y creen que Jujuy merece un escenario a la altura de su energía, su talento y su identidad.",
-    "Creamos este festival para experimentar el sonido al máximo nivel y vivir una experiencia que sólo puede suceder acá, en el norte."
+    "La ciudad de San Salvador de Jujuy se prepara para recibir una propuesta musical innovadora para este enero en la capital: el lanzamiento de la primera edición del Festival Sun Salvador",
+    "Impulsado por la banda local Hollywoods Bungalows, el festival surge del deseo de crear un punto de encuentro distinto para quienes buscan nuevas experiencias sonoras en la provincia.",
+    "Esta primera edición reúne artistas locales y nacionales, con un hito histórico para Jujuy: la llegada por primera vez de Benito Cerati junto a su banda desde Buenos Aires.",
+    "Sun Salvador es un evento que promete ser el epicentro del indie rock y la música alternativa en la región año a año, y vos podes vivir la primera edición."
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToSlide = useCallback((index: number) => {
+    setCurrentIndex(index);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,29 +23,34 @@ function About() {
   }, [phrases.length]);
 
   return (
-    <section id="about" className="relative py-10 px-4 overflow-hidden">
+    <section id="about" className="relative py-6 md:py-10 px-3 md:px-4 overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="p-8 md:p-12" style={{
-          backgroundColor: 'rgba(242, 46, 210, 0.4)',
+        <div className="p-4 md:p-8 lg:p-12" style={{
+          backgroundColor: 'rgba(255, 28, 218, 0.4)',
           border: '6px solid #000',
           boxShadow: `
             15px 15px 0px rgba(0,0,0,0.9),
             30px 30px 0px rgba(0,0,0,0.5),
-            inset 0 0 25px rgba(242, 46, 210, 0.2)
+            inset 0 0 25px rgba(255, 28, 218, 0.2)
           `,
           backdropFilter: 'blur(10px)'
         }}>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 tracking-tight text-white whitespace-nowrap" style={{
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-8 tracking-tight" style={{
+            color: '#F2C12E',
             textShadow: `
-              3px 3px 0px #F2C12E,
-              6px 6px 0px #F22ED2,
-              9px 9px 0px #0C2FF2,
-              12px 12px 0px #000,
-              15px 15px 20px rgba(0,0,0,0.8)
+              4px 4px 0px rgba(0,0,0,0.8),
+              8px 8px 0px rgba(0,0,0,0.6),
+              12px 12px 0px rgba(0,0,0,0.4),
+              16px 16px 0px rgba(0,0,0,0.2),
+              20px 20px 20px rgba(0,0,0,0.5)
             `,
-            WebkitTextStroke: '2px #F2C12E',
+            WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
+            WebkitTextFillColor: '#F2C12E',
+            paintOrder: 'stroke fill',
             letterSpacing: '0.1em',
-            filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.6))'
+            transform: 'perspective(500px) rotateX(5deg) rotateY(-2deg)',
+            filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.8))',
+            transition: 'transform 0.3s ease'
           }}>
             SOBRE EL FESTIVAL
           </h2>
@@ -68,7 +77,7 @@ function About() {
                     boxSizing: 'border-box'
                   }}
                 >
-                  <div className="text-white text-2xl md:text-3xl leading-relaxed font-bold" style={{
+                  <div className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed font-bold font-primary" style={{
                     textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)',
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.6))'
                   }}>
@@ -80,20 +89,26 @@ function About() {
           </div>
 
           {/* Indicadores de posición */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-2 mt-6" role="tablist" aria-label="Navegación del carrusel">
             {phrases.map((_, index) => (
-              <div
+              <button
                 key={index}
-                className="transition-all duration-300"
+                type="button"
+                role="tab"
+                aria-selected={index === currentIndex}
+                aria-label={`Ir a slide ${index + 1}`}
+                className="transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 rounded"
                 style={{
                   width: index === currentIndex ? '2rem' : '0.75rem',
                   height: '0.75rem',
+                  minWidth: '0.75rem',
+                  minHeight: '0.75rem',
                   backgroundColor: index === currentIndex ? '#F2C12E' : 'rgba(255, 255, 255, 0.4)',
                   border: '2px solid #000',
                   borderRadius: '0.5rem',
                   cursor: 'pointer'
                 }}
-                onClick={() => setCurrentIndex(index)}
+                onClick={() => goToSlide(index)}
               />
             ))}
           </div>
@@ -103,4 +118,4 @@ function About() {
   );
 }
 
-export default About;
+export default memo(About);

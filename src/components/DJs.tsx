@@ -22,7 +22,7 @@ function DJs() {
   return (
     <section className="relative py-10 px-4 overflow-hidden">
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="inline-block w-full text-center mb-10 py-3" style={{ backgroundColor: '#0C2FF2' }}>
+        <div className="inline-block w-full text-center mb-10 py-3" style={{ backgroundColor: '#0013FF' }}>
           <h2 className="text-5xl md:text-6xl font-black tracking-wider text-white" style={{
             textShadow: `
               3px 3px 0px #FBBF24,
@@ -43,7 +43,7 @@ function DJs() {
             <div
               key={dj.name}
                 className="p-6 transform hover:scale-110 hover:rotate-3 transition-all duration-300"
-              style={{ backgroundColor: '#F22ED2' }}
+              style={{ backgroundColor: '#FF1CDA' }}
             >
               <div className="flex flex-col items-center space-y-6">
                 <div className="w-full aspect-square flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#F2C12E' }}>

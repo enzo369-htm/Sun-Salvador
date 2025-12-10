@@ -62,7 +62,7 @@ function Artists() {
       {/* Montañas pequeñas de fondo */}
       <div className="absolute bottom-0 right-0 w-1/2 opacity-20 pointer-events-none">
         <svg viewBox="0 0 600 200" className="w-full h-auto">
-          <path d="M0,200 Q100,150 200,100 T400,80 L500,140 Q550,180 600,200 Z" fill="#0C2FF2" stroke="#000" strokeWidth="3" />
+          <path d="M0,200 Q100,150 200,100 T400,80 L500,140 Q550,180 600,200 Z" fill="#0013FF" stroke="#000" strokeWidth="3" />
           <path d="M320,130 Q360,90 400,80 Q440,100 470,120" fill="#FFF" stroke="#000" strokeWidth="2" />
         </svg>
       </div>
@@ -93,13 +93,13 @@ function Artists() {
             >
               <div
                 className="p-6 transition-all duration-300 cursor-pointer relative z-10 hover:scale-105"
-                style={{ backgroundColor: '#0C2FF2' }}
+                style={{ backgroundColor: '#0013FF' }}
                 onMouseEnter={() => handleMouseEnter(artist.name)}
                 onMouseLeave={handleMouseLeave}
             >
                 <div className="w-full aspect-square mb-4
                                 flex items-center justify-center overflow-hidden relative"
-                     style={{ backgroundColor: '#F22ED2' }}>
+                     style={{ backgroundColor: '#FF1CDA' }}>
                   {artist.image ? (
                     <img 
                       src={getImageUrl(artist.image)} 
@@ -128,7 +128,7 @@ function Artists() {
             <div
               className="relative border-4 border-black max-w-2xl w-full max-h-[80vh] overflow-y-auto
                           shadow-[10px_10px_0px_black] animate-fadeIn pointer-events-auto"
-              style={{ backgroundColor: '#0C2FF2' }}
+              style={{ backgroundColor: '#0013FF' }}
               onMouseEnter={handleModalMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
@@ -137,7 +137,7 @@ function Artists() {
                 onMouseDown={() => setExpandedArtist(null)}
                 className="absolute top-4 right-4 w-10 h-10 border-4 border-black flex items-center justify-center z-20
                            transition-all duration-300 hover:scale-110 cursor-pointer"
-                style={{ backgroundColor: '#F22ED2' }}
+                style={{ backgroundColor: '#FF1CDA' }}
               >
                 <X className="w-6 h-6 text-white" strokeWidth={3} />
               </button>
@@ -152,7 +152,7 @@ function Artists() {
                     <>
                       {/* Imagen del artista */}
                       <div className="w-full aspect-square mb-6 border-4 border-black overflow-hidden"
-                           style={{ backgroundColor: '#F22ED2' }}>
+                           style={{ backgroundColor: '#FF1CDA' }}>
                         {artist.image ? (
                           <img 
                             src={getImageUrl(artist.image)} 
@@ -181,7 +181,7 @@ function Artists() {
                       </h3>
 
                       {/* Información */}
-                      <div className="border-4 border-black p-6 mb-6" style={{ backgroundColor: '#F22ED2' }}>
+                      <div className="border-4 border-black p-6 mb-6" style={{ backgroundColor: '#FF1CDA' }}>
                         <p className="text-white text-base md:text-lg leading-relaxed font-bold">
                           {artist.info}
                         </p>

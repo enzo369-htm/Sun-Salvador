@@ -1,92 +1,243 @@
-import { Sparkles, Users, Music2, Heart } from 'lucide-react';
+import { useState, useEffect, memo } from 'react';
 
 function WhySunSalvador() {
-  const reasons = [
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const features = [
     {
-      icon: Music2,
-      title: 'MÚSICA AL MÁXIMO NIVEL',
-      description: 'Sun Salvador es música al máximo nivel técnico, artístico y emocional.',
+      title: 'Música en vivo de alto nivel',
+      description: 'Shows potentes en vivo, sin pausas.',
     },
     {
-      icon: Sparkles,
-      title: 'DESCUBRÍ NUEVAS BANDAS',
-      description: 'Descubrí nuevas bandas, vibrá con artistas, bailá con DJs que expanden el viaje sonoro.',
+      title: 'Artistas locales + nacionales',
+      description: 'La escena jujeña junto a referentes nacionales.',
     },
     {
-      icon: Users,
-      title: 'ESPACIO SEGURO',
-      description: 'Un espacio seguro para experimentar, encontrarse y celebrar la cultura.',
+      title: 'DJs durante toda la noche',
+      description: 'Sonido continuo hasta el final.',
     },
     {
-      icon: Heart,
-      title: 'JUJUY LO MERECE',
-      description: 'Creamos Sun Salvador porque creemos que Jujuy merece un evento a la altura de su talento, su público y su historia. Sun Salvador une a músicos, productores, artistas y público en un mismo fuego creativo: hacer que la música suceda acá.',
+      title: 'Comunidad, cultura y celebración',
+      description: 'Música, encuentro y experiencia colectiva.',
+    },
+    {
+      title: 'Cobertura audiovisual en tiempo real',
+      description: 'El festival también se vive en vivo online.',
     },
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % features.length);
+    }, 5000); // Cambia cada 5 segundos
+
+    return () => clearInterval(interval);
+  }, [features.length]);
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + features.length) % features.length);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % features.length);
+  };
+
   return (
-    <section className="relative py-16 px-4 overflow-hidden">
+    <section className="relative py-8 md:py-16 px-3 md:px-4 overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="backdrop-blur-md inline-block w-full text-center mb-10 py-3" style={{ 
-          backgroundColor: 'rgba(12, 47, 242, 0.6)',
+        {/* Título principal */}
+        <div className="backdrop-blur-md inline-block w-full text-center mb-6 py-3" style={{ 
+          backgroundColor: 'rgba(0, 19, 255, 0.6)',
           border: '6px solid #000',
           boxShadow: `
             15px 15px 0px rgba(0,0,0,0.9),
             30px 30px 0px rgba(0,0,0,0.5),
-            inset 0 0 25px rgba(12, 47, 242, 0.2)
+            inset 0 0 25px rgba(0, 19, 255, 0.2)
           `,
-          padding: '1.5rem 2rem'
+          padding: isMobile ? '1rem 1.5rem' : '1.5rem 2rem'
         }}>
-          <h2 className="text-5xl md:text-6xl font-black tracking-wider text-white" style={{ 
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-wider" style={{ 
+            color: '#FFF',
             textShadow: `
-              3px 3px 0px #FBBF24,
-              6px 6px 0px #F59E0B,
-              9px 9px 0px #D97706,
-              12px 12px 0px #000,
-              15px 15px 20px rgba(0,0,0,0.5)
+              3px 3px 0px #000,
+              5px 5px 0px rgba(0,0,0,0.8),
+              0 0 10px rgba(0,0,0,0.5)
             `,
-            WebkitTextStroke: '2px #B45309',
-            letterSpacing: '0.1em'
+            WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
+            WebkitTextFillColor: '#FFF',
+            paintOrder: 'stroke fill',
+            letterSpacing: '0.1em',
+            transform: 'perspective(500px) rotateX(5deg) rotateY(-2deg)',
+            filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))',
+            transition: 'transform 0.3s ease'
           }}>
-            ¿POR QUÉ SUN SALVADOR?
+            LA EXPERIENCIA
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {reasons.map((reason, index) => {
-            const Icon = reason.icon;
-            return (
-              <div
-                key={reason.title}
-                className="transform hover:scale-105 transition-all duration-300"
-                style={{
-                  backgroundColor: 'rgba(12, 47, 242, 0.4)',
-                  border: '6px solid #000',
-                  boxShadow: `
-                    15px 15px 0px rgba(0,0,0,0.9),
-                    30px 30px 0px rgba(0,0,0,0.5),
-                    inset 0 0 25px rgba(12, 47, 242, 0.2)
-                  `,
-                  backdropFilter: 'blur(10px)',
-                  padding: '1.5rem 2rem'
-                }}
-              >
-                <div className="w-20 h-20
-                                flex items-center justify-center mb-6"
-                     style={{ backgroundColor: '#F2C12E' }}>
-                  <Icon className="w-10 h-10 text-black" strokeWidth={3} />
+        {/* Subtítulo */}
+        <div className="text-center mb-10">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-wide" style={{
+            color: '#F2C12E',
+            fontFamily: '"Monument Extended", "Space Grotesk", "Impact", "Arial Black", sans-serif',
+            textShadow: `
+              3px 3px 0px #000,
+              5px 5px 0px rgba(0,0,0,0.8)
+            `,
+            WebkitTextStroke: 'clamp(2px, 0.4vw, 3px) #000',
+            WebkitTextFillColor: '#F2C12E',
+            paintOrder: 'stroke fill',
+            letterSpacing: '0.05em'
+          }}>
+            Lo que vas a vivir
+          </h3>
+        </div>
+
+        {/* Carrusel de características */}
+        <div className="relative" style={{ minHeight: '300px' }}>
+          {/* Contenedor del carrusel */}
+          <div className="relative overflow-hidden" style={{ minHeight: '300px', width: '100%' }}>
+            <div 
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{
+                transform: `translateX(calc(-${currentIndex} * 100%))`,
+                display: 'flex'
+              }}
+            >
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  style={{
+                    minWidth: '100%',
+                    width: '100%',
+                    flexShrink: 0,
+                    flexGrow: 0,
+                    boxSizing: 'border-box',
+                    padding: '0 0.5rem'
+                  }}
+                >
+                  <div
+                    className="transform transition-all duration-300"
+                    style={{
+                      backgroundColor: 'rgba(0, 19, 255, 0.4)',
+                      border: '6px solid #000',
+                      boxShadow: `
+                        12px 12px 0px rgba(0,0,0,0.9),
+                        24px 24px 0px rgba(0,0,0,0.5),
+                        inset 0 0 20px rgba(0, 19, 255, 0.2)
+                      `,
+                      backdropFilter: 'blur(10px)',
+                      padding: isMobile ? '1.5rem 1.5rem' : '2rem 2rem',
+                      textAlign: 'center',
+                      height: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      gap: '1rem'
+                    }}
+                  >
+                    <h3 className="font-black text-white" style={{
+                      fontSize: 'clamp(1.1rem, 3.5vw, 1.6rem)',
+                      fontWeight: 900,
+                      letterSpacing: '0.1em',
+                      textShadow: `
+                        3px 3px 0px #000,
+                        5px 5px 0px rgba(0,0,0,0.8),
+                        0 0 10px rgba(0,0,0,0.5)
+                      `,
+                      WebkitTextStroke: '2px #000',
+                      WebkitTextFillColor: '#FFF',
+                      paintOrder: 'stroke fill',
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))',
+                      marginBottom: '0.5rem'
+                    }}>
+                      {feature.title}
+                    </h3>
+
+                    <p className="leading-relaxed font-bold text-white" style={{
+                      fontSize: 'clamp(1rem, 3vw, 1.5rem)',
+                      fontWeight: 900,
+                      letterSpacing: '0.1em',
+                      textShadow: `
+                        3px 3px 0px #000,
+                        5px 5px 0px rgba(0,0,0,0.8),
+                        0 0 10px rgba(0,0,0,0.5)
+                      `,
+                      WebkitTextStroke: '2px #000',
+                      WebkitTextFillColor: '#FFF',
+                      paintOrder: 'stroke fill',
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))'
+                    }}>
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                <h3 className="text-2xl md:text-3xl font-black mb-3 tracking-tight text-white">
-                  {reason.title}
-                </h3>
+          {/* Botones de navegación */}
+          <button
+            onClick={goToPrevious}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 md:-translate-x-8 z-20 w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 border-3 md:border-4 border-black flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110"
+            style={{
+              backgroundColor: '#FF1CDA',
+              boxShadow: '4px 4px 0px rgba(0,0,0,0.8)'
+            }}
+            aria-label="Anterior"
+          >
+            <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
 
-                <p className="text-lg leading-relaxed font-bold text-white">
-                  {reason.description}
-                </p>
-              </div>
-            );
-          })}
+          <button
+            onClick={goToNext}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-2 md:translate-x-8 z-20 w-10 h-10 md:w-12 md:h-12 lg:w-16 lg:h-16 border-3 md:border-4 border-black flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110"
+            style={{
+              backgroundColor: '#FF1CDA',
+              boxShadow: '4px 4px 0px rgba(0,0,0,0.8)'
+            }}
+            aria-label="Siguiente"
+          >
+            <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Indicadores de posición */}
+        <div className="flex justify-center gap-2 mt-8">
+          {features.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className="transition-all duration-300 cursor-pointer"
+              style={{
+                width: index === currentIndex ? '2.5rem' : '0.75rem',
+                height: '0.75rem',
+                backgroundColor: index === currentIndex ? '#F2C12E' : 'rgba(255, 255, 255, 0.4)',
+                border: '2px solid #000',
+                borderRadius: '0.5rem'
+              }}
+              aria-label={`Ir a slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -94,4 +245,4 @@ function WhySunSalvador() {
 }
 
 
-export default WhySunSalvador;
+export default memo(WhySunSalvador);

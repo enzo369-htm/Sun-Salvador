@@ -1,5 +1,5 @@
 import { Music, ExternalLink, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, memo } from 'react';
 
 // Función helper para codificar correctamente las rutas de imágenes
 const getImageUrl = (path: string): string => {
@@ -47,6 +47,16 @@ const djs = [
 function FlyerSection() {
   const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
   const [selectedDJ, setSelectedDJ] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleArtistClick = (artistName: string) => {
     setSelectedArtist(artistName);
@@ -98,7 +108,7 @@ function FlyerSection() {
       <div 
         className="absolute top-0 left-0 right-0 h-96 pointer-events-none z-5"
         style={{
-          background: 'linear-gradient(to bottom, rgba(12, 47, 242, 1) 0%, rgba(12, 47, 242, 0.85) 5%, rgba(12, 47, 242, 0.7) 20%, rgba(12, 47, 242, 0.5) 40%, rgba(12, 47, 242, 0.3) 60%, rgba(12, 47, 242, 0.15) 80%, transparent 100%)'
+          background: 'linear-gradient(to bottom, rgba(0, 19, 255, 1) 0%, rgba(0, 19, 255, 0.85) 5%, rgba(0, 19, 255, 0.7) 20%, rgba(0, 19, 255, 0.5) 40%, rgba(0, 19, 255, 0.3) 60%, rgba(0, 19, 255, 0.15) 80%, transparent 100%)'
         }}
       ></div>
 
@@ -106,58 +116,65 @@ function FlyerSection() {
       <div 
         className="absolute inset-0 pointer-events-none z-3"
         style={{
-          background: 'linear-gradient(to bottom, rgba(12, 47, 242, 0.2) 0%, rgba(12, 47, 242, 0.1) 25%, transparent 60%, transparent 85%, rgba(12, 47, 242, 0.05) 100%)'
+          background: 'linear-gradient(to bottom, rgba(0, 19, 255, 0.2) 0%, rgba(0, 19, 255, 0.1) 25%, transparent 60%, transparent 85%, rgba(0, 19, 255, 0.05) 100%)'
         }}
       ></div>
 
       {/* Contenedor principal - nombres flotantes sin fondo */}
       <div className="relative w-full max-w-6xl z-10 py-8 md:py-12 flex flex-col items-center">
-        {/* Banner superior flotante */}
-        <div className="text-center mb-6 md:mb-8 relative" style={{ willChange: 'transform', zIndex: 20 }}>
-          <p className="text-white font-bold inline-block px-6 py-3 border-3 border-black" style={{
-            fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-            fontSize: 'clamp(1rem, 2vw, 1.5rem)',
-            backgroundColor: '#F22ED2',
-            textShadow: '3px 3px 0px #000, 5px 5px 0px rgba(0,0,0,0.5)',
-            WebkitTextStroke: '1.5px #000',
-            letterSpacing: '0.05em',
-            boxShadow: `
-              12px 12px 0px rgba(0,0,0,0.9),
-              24px 24px 0px rgba(0,0,0,0.5),
-              inset 0 0 15px rgba(242, 46, 210, 0.2)
-            `,
-            transform: 'rotate(-2deg)',
-            borderWidth: '3px',
-            fontWeight: 400,
-            position: 'relative',
-            zIndex: 20
-          }}>
-            SABADO 17 DE ENERO - AV BOLIVIA 1501
-          </p>
-        </div>
-
         {/* Nombres flotantes - área principal con un solo recuadro */}
         <div className="relative inline-block" style={{
-          backgroundColor: 'rgba(12, 47, 242, 0.4)',
-          border: '10px solid #000',
+          backgroundColor: 'rgba(0, 19, 255, 0.4)',
+          border: isMobile ? '6px solid #000' : '10px solid #000',
           boxShadow: `
             20px 20px 0px rgba(0,0,0,0.9),
             40px 40px 0px rgba(0,0,0,0.5),
-            inset 0 0 35px rgba(12, 47, 242, 0.2)
+            inset 0 0 35px rgba(0, 19, 255, 0.2)
           `,
           backdropFilter: 'blur(10px)',
-          padding: '3rem 4rem',
-          minHeight: '450px',
+          padding: '0',
+          minHeight: 'auto',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
+          justifyContent: 'flex-start',
           gap: '1rem',
-          alignItems: 'center',
+          alignItems: 'stretch',
           width: 'auto',
           maxWidth: '95%',
-          transform: 'scale(1.3)',
+          transform: isMobile ? 'scale(0.85)' : 'scale(1.3)',
           zIndex: 10
         }}>
+              {/* Banner superior dentro del recuadro - ocupa todo el ancho */}
+              <div className="w-full" style={{ willChange: 'transform', marginBottom: '0.5rem', marginTop: 0 }}>
+                <p className={`text-white font-bold ${isMobile ? 'py-2' : 'py-3'} border-3 border-black text-center`} style={{
+                  fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                  fontSize: isMobile ? 'clamp(0.75rem, 3vw, 1rem)' : 'clamp(1rem, 2vw, 1.5rem)',
+                  backgroundColor: '#FF1CDA',
+                  textShadow: '3px 3px 0px #000, 5px 5px 0px rgba(0,0,0,0.5)',
+                  WebkitTextStroke: '1.5px #000',
+                  letterSpacing: '0.05em',
+                  boxShadow: `
+                    12px 12px 0px rgba(0,0,0,0.9),
+                    24px 24px 0px rgba(0,0,0,0.5),
+                    inset 0 0 15px rgba(255, 28, 218, 0.2)
+                  `,
+                  transform: 'none',
+                  borderWidth: '3px',
+                  fontWeight: 400,
+                  position: 'relative',
+                  display: 'block',
+                  width: '100%',
+                  boxSizing: 'border-box',
+                  margin: 0,
+                  paddingLeft: isMobile ? '0.5rem' : '1rem',
+                  paddingRight: isMobile ? '0.5rem' : '1rem'
+                }}>
+                  SABADO 17 DE ENERO - AV BOLIVIA 1501
+                </p>
+              </div>
+              
+              {/* Contenedor interno para los nombres con padding */}
+              <div style={{ padding: isMobile ? '0.5rem 1rem 1rem 1rem' : '0.5rem 2rem 1rem 2rem', display: 'flex', flexDirection: 'column', gap: isMobile ? '0.3rem' : '0.5rem', alignItems: 'center', width: '100%' }}>
               {/* BENITO CERATI - MÁS GRANDE Y ANCHO */}
               <div 
                 onClick={() => handleArtistClick('BENITO CERATI')}
@@ -176,7 +193,7 @@ function FlyerSection() {
                   style={{
                     color: '#FFFFFF',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: 'clamp(2rem, 4.5vw, 3.8rem)',
+                    fontSize: isMobile ? 'clamp(1.5rem, 5vw, 2.5rem)' : 'clamp(2rem, 4.5vw, 3.8rem)',
                     fontWeight: 400,
                     letterSpacing: '-0.02em',
                     textShadow: `
@@ -217,7 +234,7 @@ function FlyerSection() {
                   style={{
                     color: '#F2C12E',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: 'clamp(1.8rem, 4vw, 3rem)',
+                    fontSize: isMobile ? 'clamp(1.3rem, 4.5vw, 2.2rem)' : 'clamp(1.8rem, 4vw, 3rem)',
                     fontWeight: 400,
                     letterSpacing: '-0.02em',
                     textShadow: `
@@ -254,9 +271,9 @@ function FlyerSection() {
                 <div
                   className="text-center"
                   style={{
-                    color: '#F22ED2',
+                    color: '#FF1CDA',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+                    fontSize: isMobile ? 'clamp(1.1rem, 4vw, 1.8rem)' : 'clamp(1.5rem, 3.5vw, 2.5rem)',
                     fontWeight: 400,
                     letterSpacing: '0.05em',
                     textShadow: `
@@ -264,7 +281,7 @@ function FlyerSection() {
                       10px 14px 0px rgba(0,0,0,0.8)
                     `,
                     WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
-                    WebkitTextFillColor: '#F22ED2',
+                    WebkitTextFillColor: '#FF1CDA',
                     paintOrder: 'stroke fill',
                     lineHeight: '1.1',
                     textTransform: 'uppercase',
@@ -288,9 +305,9 @@ function FlyerSection() {
               }}>
                 <div className="text-center flex items-center justify-center gap-2 flex-wrap" style={{ transform: 'rotate(1deg)', flex: 1 }}>
                   <span style={{
-                    color: '#F22ED2',
+                    color: '#FF1CDA',
                     fontFamily: '"Pacifico", "Bangers", "Luckiest Guy", cursive',
-                    fontSize: 'clamp(1.2rem, 2.5vw, 2rem)',
+                    fontSize: isMobile ? 'clamp(0.9rem, 3vw, 1.5rem)' : 'clamp(1.2rem, 2.5vw, 2rem)',
                     fontWeight: 400,
                     letterSpacing: '0.05em',
                     textShadow: '3px 3px 0px #000, 0 0 15px rgba(242,46,210,0.6)',
@@ -313,7 +330,7 @@ function FlyerSection() {
                       style={{
                         color: '#FFFFFF',
                         fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                        fontSize: 'clamp(1.3rem, 3vw, 2.4rem)',
+                        fontSize: isMobile ? 'clamp(1rem, 3.5vw, 1.8rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
                         fontWeight: 400,
                         letterSpacing: '-0.01em',
                         textShadow: '4px 4px 0px #000',
@@ -329,7 +346,7 @@ function FlyerSection() {
                   </div>
                   <span style={{ 
                     color: '#FFFFFF', 
-                    fontSize: 'clamp(1.3rem, 3vw, 2.4rem)', 
+                    fontSize: isMobile ? 'clamp(1rem, 3.5vw, 1.8rem)' : 'clamp(1.3rem, 3vw, 2.4rem)', 
                     margin: '0 0.5rem',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                     fontWeight: 400,
@@ -345,7 +362,7 @@ function FlyerSection() {
                       style={{
                         color: '#FFFFFF',
                         fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                        fontSize: 'clamp(1.3rem, 3vw, 2.4rem)',
+                        fontSize: isMobile ? 'clamp(1rem, 3.5vw, 1.8rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
                         fontWeight: 400,
                         letterSpacing: '-0.01em',
                         textShadow: '4px 4px 0px #000',
@@ -361,6 +378,7 @@ function FlyerSection() {
                   </div>
                 </div>
               </div>
+              </div>
             </div>
       </div>
 
@@ -374,7 +392,7 @@ function FlyerSection() {
           <div
             className="relative border-4 border-black max-w-2xl w-full max-h-[80vh] overflow-y-auto
                         shadow-[10px_10px_0px_black] animate-fadeIn"
-            style={{ backgroundColor: '#0C2FF2' }}
+            style={{ backgroundColor: '#0013FF' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Botón de cierre */}
@@ -382,7 +400,7 @@ function FlyerSection() {
               onClick={closeModal}
               className="absolute top-4 right-4 w-10 h-10 border-4 border-black flex items-center justify-center z-20
                          transition-all duration-300 hover:scale-110 cursor-pointer"
-              style={{ backgroundColor: '#F22ED2' }}
+              style={{ backgroundColor: '#FF1CDA' }}
             >
               <X className="w-6 h-6 text-white" strokeWidth={3} />
             </button>
@@ -397,7 +415,7 @@ function FlyerSection() {
                   <>
                     {/* Imagen del artista */}
                     <div className="w-full aspect-square mb-6 border-4 border-black overflow-hidden"
-                         style={{ backgroundColor: '#F22ED2' }}>
+                         style={{ backgroundColor: '#FF1CDA' }}>
                       {artist.image ? (
                         <img 
                           src={getImageUrl(artist.image)} 
@@ -417,7 +435,7 @@ function FlyerSection() {
                     </h3>
 
                     {/* Información */}
-                    <div className="border-4 border-black p-6 mb-6" style={{ backgroundColor: '#F22ED2' }}>
+                    <div className="border-4 border-black p-6 mb-6" style={{ backgroundColor: '#FF1CDA' }}>
                       <p className="text-white text-base md:text-lg leading-relaxed font-bold">
                         {artist.info}
                       </p>
@@ -454,7 +472,7 @@ function FlyerSection() {
           <div
             className="relative border-4 border-black max-w-xl w-full
                         shadow-[10px_10px_0px_black] animate-fadeIn"
-            style={{ backgroundColor: '#F22ED2' }}
+            style={{ backgroundColor: '#FF1CDA' }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Botón de cierre */}
@@ -462,7 +480,7 @@ function FlyerSection() {
               onClick={closeModal}
               className="absolute top-4 right-4 w-10 h-10 border-4 border-black flex items-center justify-center z-20
                          transition-all duration-300 hover:scale-110 cursor-pointer"
-              style={{ backgroundColor: '#0C2FF2' }}
+              style={{ backgroundColor: '#0013FF' }}
             >
               <X className="w-6 h-6 text-white" strokeWidth={3} />
             </button>
@@ -506,4 +524,4 @@ function FlyerSection() {
   );
 }
 
-export default FlyerSection;
+export default memo(FlyerSection);
