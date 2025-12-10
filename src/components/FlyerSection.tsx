@@ -309,18 +309,24 @@ function FlyerSection() {
                 <div className="text-center flex items-center justify-center gap-2 flex-wrap" style={{ transform: 'rotate(1deg)', flex: 1 }}>
                   <span style={{
                     color: '#FF1CDA',
-                    fontFamily: '"Pacifico", "Bangers", "Luckiest Guy", cursive',
+                    fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                     fontSize: isMobile ? 'clamp(1.2rem, 4vw, 2rem)' : 'clamp(1.2rem, 2.5vw, 2rem)',
                     fontWeight: 400,
                     letterSpacing: '0.05em',
-                    textShadow: '3px 3px 0px #000, 0 0 15px rgba(242,46,210,0.6)',
-                    WebkitTextStroke: '2px #000',
+                    textShadow: `
+                      4px 4px 0px #000,
+                      6px 6px 0px rgba(0,0,0,0.8),
+                      0 0 15px rgba(255,28,218,0.6)
+                    `,
+                    WebkitTextStroke: 'clamp(3px, 0.5vw, 4px) #000',
+                    WebkitTextFillColor: '#FF1CDA',
+                    paintOrder: 'stroke fill',
                     fontStyle: 'normal',
                     transform: 'skew(-12deg) rotate(-5deg)',
                     display: 'inline-block',
                     marginRight: '1rem',
-                    textTransform: 'none',
-                    filter: 'drop-shadow(0 0 8px rgba(242,46,210,0.4))'
+                    textTransform: 'uppercase',
+                    filter: 'drop-shadow(0 0 8px rgba(255,28,218,0.4))'
                   }}>
                     DJS
                   </span>
@@ -363,14 +369,17 @@ function FlyerSection() {
                   >
                     <div
                       style={{
-                        color: '#FFFFFF',
+                        color: '#F2C12E',
                         fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                         fontSize: isMobile ? 'clamp(1.5rem, 5vw, 2.5rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
                         fontWeight: 400,
                         letterSpacing: '-0.01em',
-                        textShadow: '4px 4px 0px #000',
-                        WebkitTextStroke: 'clamp(2px, 0.4vw, 4px) #000',
-                        WebkitTextFillColor: '#FFFFFF',
+                        textShadow: `
+                          8px 12px 0px #000,
+                          10px 14px 0px rgba(0,0,0,0.8)
+                        `,
+                        WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
+                        WebkitTextFillColor: '#F2C12E',
                         paintOrder: 'stroke fill',
                         lineHeight: '1.1',
                         textTransform: 'uppercase'
