@@ -151,7 +151,7 @@ function FlyerSection() {
               <div className="w-full" style={{ willChange: 'transform', marginBottom: isMobile ? '1rem' : '0.5rem', marginTop: 0 }}>
                 <p className={`text-white font-bold ${isMobile ? 'py-3' : 'py-3'} border-3 border-black text-center`} style={{
                   fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                  fontSize: isMobile ? 'clamp(0.85rem, 3.5vw, 1.1rem)' : 'clamp(1rem, 2vw, 1.5rem)',
+                  fontSize: isMobile ? 'clamp(1.1rem, 4.5vw, 1.5rem)' : 'clamp(1rem, 2vw, 1.5rem)',
                   backgroundColor: '#FF1CDA',
                   textShadow: '3px 3px 0px #000, 5px 5px 0px rgba(0,0,0,0.5)',
                   WebkitTextStroke: '1.5px #000',
@@ -196,7 +196,7 @@ function FlyerSection() {
                   style={{
                     color: '#FFFFFF',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: isMobile ? 'clamp(1.8rem, 6vw, 2.8rem)' : 'clamp(2rem, 4.5vw, 3.8rem)',
+                    fontSize: isMobile ? 'clamp(2.2rem, 7vw, 3.5rem)' : 'clamp(2rem, 4.5vw, 3.8rem)',
                     fontWeight: 400,
                     letterSpacing: '-0.02em',
                     textShadow: `
@@ -237,7 +237,7 @@ function FlyerSection() {
                   style={{
                     color: '#F2C12E',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: isMobile ? 'clamp(1.5rem, 5.5vw, 2.5rem)' : 'clamp(1.8rem, 4vw, 3rem)',
+                    fontSize: isMobile ? 'clamp(1.8rem, 6.5vw, 3rem)' : 'clamp(1.8rem, 4vw, 3rem)',
                     fontWeight: 400,
                     letterSpacing: '-0.02em',
                     textShadow: `
@@ -276,7 +276,7 @@ function FlyerSection() {
                   style={{
                     color: '#FF1CDA',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: isMobile ? 'clamp(1.3rem, 4.5vw, 2rem)' : 'clamp(1.5rem, 3.5vw, 2.5rem)',
+                    fontSize: isMobile ? 'clamp(1.6rem, 5.5vw, 2.4rem)' : 'clamp(1.5rem, 3.5vw, 2.5rem)',
                     fontWeight: 400,
                     letterSpacing: '0.05em',
                     textShadow: `
@@ -333,7 +333,7 @@ function FlyerSection() {
                       style={{
                         color: '#FFFFFF',
                         fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                        fontSize: isMobile ? 'clamp(1.2rem, 4vw, 2rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
+                        fontSize: isMobile ? 'clamp(1.5rem, 5vw, 2.5rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
                         fontWeight: 400,
                         letterSpacing: '-0.01em',
                         textShadow: '4px 4px 0px #000',
@@ -349,7 +349,7 @@ function FlyerSection() {
                   </div>
                   <span style={{ 
                     color: '#FFFFFF', 
-                    fontSize: isMobile ? 'clamp(1.2rem, 4vw, 2rem)' : 'clamp(1.3rem, 3vw, 2.4rem)', 
+                    fontSize: isMobile ? 'clamp(1.5rem, 5vw, 2.5rem)' : 'clamp(1.3rem, 3vw, 2.4rem)', 
                     margin: '0 0.5rem',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                     fontWeight: 400,
@@ -365,7 +365,7 @@ function FlyerSection() {
                       style={{
                         color: '#FFFFFF',
                         fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                        fontSize: isMobile ? 'clamp(1.2rem, 4vw, 2rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
+                        fontSize: isMobile ? 'clamp(1.5rem, 5vw, 2.5rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
                         fontWeight: 400,
                         letterSpacing: '-0.01em',
                         textShadow: '4px 4px 0px #000',
