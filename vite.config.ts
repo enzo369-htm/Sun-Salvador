@@ -16,6 +16,10 @@ export default defineConfig({
         drop_debugger: true,
       },
     },
+    // Asegurar que terser esté disponible
+    commonjsOptions: {
+      include: [/terser/, /node_modules/],
+    },
     rollupOptions: {
       output: {
         // Code splitting optimizado

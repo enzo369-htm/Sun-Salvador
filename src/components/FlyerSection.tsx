@@ -48,10 +48,13 @@ function FlyerSection() {
   const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
   const [selectedDJ, setSelectedDJ] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isSmallMobile, setIsSmallMobile] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      const width = window.innerWidth;
+      setIsMobile(width < 768);
+      setIsSmallMobile(width < 375); // iPhone SE y similares
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -121,11 +124,11 @@ function FlyerSection() {
       ></div>
 
       {/* Contenedor principal - nombres flotantes sin fondo */}
-      <div className="relative w-full max-w-6xl z-10 py-8 md:py-12 flex flex-col items-center">
+      <div className="relative w-full max-w-6xl z-10 py-4 sm:py-6 md:py-8 lg:py-12 flex flex-col items-center">
         {/* Nombres flotantes - área principal con un solo recuadro */}
         <div className="relative inline-block" style={{
           backgroundColor: 'rgba(0, 19, 255, 0.4)',
-          border: isMobile ? '6px solid #000' : '10px solid #000',
+          border: isSmallMobile ? '4px solid #000' : isMobile ? '6px solid #000' : '10px solid #000',
           boxShadow: `
             20px 20px 0px rgba(0,0,0,0.9),
             40px 40px 0px rgba(0,0,0,0.5),
@@ -141,14 +144,14 @@ function FlyerSection() {
           alignItems: 'stretch',
           width: 'auto',
           maxWidth: '95%',
-          transform: isMobile ? 'scale(0.85)' : 'scale(1.3)',
+          transform: isSmallMobile ? 'scale(0.7)' : isMobile ? 'scale(0.85)' : 'scale(1.3)',
           zIndex: 10
         }}>
               {/* Banner superior dentro del recuadro - ocupa todo el ancho */}
               <div className="w-full" style={{ willChange: 'transform', marginBottom: '0.5rem', marginTop: 0 }}>
                 <p className={`text-white font-bold ${isMobile ? 'py-2' : 'py-3'} border-3 border-black text-center`} style={{
                   fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                  fontSize: isMobile ? 'clamp(0.75rem, 3vw, 1rem)' : 'clamp(1rem, 2vw, 1.5rem)',
+                  fontSize: isSmallMobile ? 'clamp(0.65rem, 3.5vw, 0.85rem)' : isMobile ? 'clamp(0.75rem, 3vw, 1rem)' : 'clamp(1rem, 2vw, 1.5rem)',
                   backgroundColor: '#FF1CDA',
                   textShadow: '3px 3px 0px #000, 5px 5px 0px rgba(0,0,0,0.5)',
                   WebkitTextStroke: '1.5px #000',
@@ -166,15 +169,15 @@ function FlyerSection() {
                   width: '100%',
                   boxSizing: 'border-box',
                   margin: 0,
-                  paddingLeft: isMobile ? '0.5rem' : '1rem',
-                  paddingRight: isMobile ? '0.5rem' : '1rem'
+                  paddingLeft: isSmallMobile ? '0.4rem' : isMobile ? '0.5rem' : '1rem',
+                  paddingRight: isSmallMobile ? '0.4rem' : isMobile ? '0.5rem' : '1rem'
                 }}>
                   SABADO 17 DE ENERO - AV BOLIVIA 1501
                 </p>
               </div>
               
               {/* Contenedor interno para los nombres con padding */}
-              <div style={{ padding: isMobile ? '0.5rem 1rem 1rem 1rem' : '0.5rem 2rem 1rem 2rem', display: 'flex', flexDirection: 'column', gap: isMobile ? '0.3rem' : '0.5rem', alignItems: 'center', width: '100%' }}>
+              <div style={{ padding: isSmallMobile ? '0.4rem 0.75rem 0.75rem 0.75rem' : isMobile ? '0.5rem 1rem 1rem 1rem' : '0.5rem 2rem 1rem 2rem', display: 'flex', flexDirection: 'column', gap: isSmallMobile ? '0.25rem' : isMobile ? '0.3rem' : '0.5rem', alignItems: 'center', width: '100%' }}>
               {/* BENITO CERATI - MÁS GRANDE Y ANCHO */}
               <div 
                 onClick={() => handleArtistClick('BENITO CERATI')}
@@ -193,7 +196,7 @@ function FlyerSection() {
                   style={{
                     color: '#FFFFFF',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: isMobile ? 'clamp(1.5rem, 5vw, 2.5rem)' : 'clamp(2rem, 4.5vw, 3.8rem)',
+                    fontSize: isSmallMobile ? 'clamp(1.2rem, 6vw, 2rem)' : isMobile ? 'clamp(1.5rem, 5vw, 2.5rem)' : 'clamp(2rem, 4.5vw, 3.8rem)',
                     fontWeight: 400,
                     letterSpacing: '-0.02em',
                     textShadow: `
@@ -234,7 +237,7 @@ function FlyerSection() {
                   style={{
                     color: '#F2C12E',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: isMobile ? 'clamp(1.3rem, 4.5vw, 2.2rem)' : 'clamp(1.8rem, 4vw, 3rem)',
+                    fontSize: isSmallMobile ? 'clamp(1rem, 5vw, 1.8rem)' : isMobile ? 'clamp(1.3rem, 4.5vw, 2.2rem)' : 'clamp(1.8rem, 4vw, 3rem)',
                     fontWeight: 400,
                     letterSpacing: '-0.02em',
                     textShadow: `
@@ -273,7 +276,7 @@ function FlyerSection() {
                   style={{
                     color: '#FF1CDA',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: isMobile ? 'clamp(1.1rem, 4vw, 1.8rem)' : 'clamp(1.5rem, 3.5vw, 2.5rem)',
+                    fontSize: isSmallMobile ? 'clamp(0.9rem, 4.5vw, 1.5rem)' : isMobile ? 'clamp(1.1rem, 4vw, 1.8rem)' : 'clamp(1.5rem, 3.5vw, 2.5rem)',
                     fontWeight: 400,
                     letterSpacing: '0.05em',
                     textShadow: `
@@ -330,7 +333,7 @@ function FlyerSection() {
                       style={{
                         color: '#FFFFFF',
                         fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                        fontSize: isMobile ? 'clamp(1rem, 3.5vw, 1.8rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
+                        fontSize: isSmallMobile ? 'clamp(0.85rem, 4vw, 1.5rem)' : isMobile ? 'clamp(1rem, 3.5vw, 1.8rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
                         fontWeight: 400,
                         letterSpacing: '-0.01em',
                         textShadow: '4px 4px 0px #000',
@@ -362,7 +365,7 @@ function FlyerSection() {
                       style={{
                         color: '#FFFFFF',
                         fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                        fontSize: isMobile ? 'clamp(1rem, 3.5vw, 1.8rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
+                        fontSize: isSmallMobile ? 'clamp(0.85rem, 4vw, 1.5rem)' : isMobile ? 'clamp(1rem, 3.5vw, 1.8rem)' : 'clamp(1.3rem, 3vw, 2.4rem)',
                         fontWeight: 400,
                         letterSpacing: '-0.01em',
                         textShadow: '4px 4px 0px #000',
