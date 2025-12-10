@@ -151,4 +151,16 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* Fondo fijo solo en desktop, scroll en móvil */
+  .bg-fixed-mobile {
+    background-attachment: fixed;
+  }
+
+  @media (max-width: 767px) {
+    .bg-fixed-mobile {
+      background-attachment: scroll;
+      position: relative;
+    }
+  }
 }

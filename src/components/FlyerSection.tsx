@@ -136,11 +136,11 @@ function FlyerSection() {
           `,
           backdropFilter: 'blur(10px)',
           padding: '0',
-          minHeight: 'auto',
+          minHeight: isMobile ? '400px' : 'auto',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
-          gap: '1rem',
+          gap: isMobile ? '1.5rem' : '1rem',
           alignItems: 'stretch',
           width: 'auto',
           maxWidth: '95%',
@@ -149,7 +149,7 @@ function FlyerSection() {
         }}>
               {/* Banner superior dentro del recuadro - ocupa todo el ancho */}
               <div className="w-full" style={{ willChange: 'transform', marginBottom: '0.5rem', marginTop: 0 }}>
-                <p className={`text-white font-bold ${isMobile ? 'py-2' : 'py-3'} border-3 border-black text-center`} style={{
+                <p className={`text-white font-bold ${isMobile ? 'py-3' : 'py-3'} border-3 border-black text-center`} style={{
                   fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                   fontSize: isMobile ? 'clamp(0.85rem, 3.5vw, 1.1rem)' : 'clamp(1rem, 2vw, 1.5rem)',
                   backgroundColor: '#FF1CDA',
@@ -177,7 +177,7 @@ function FlyerSection() {
               </div>
               
               {/* Contenedor interno para los nombres con padding */}
-              <div style={{ padding: isMobile ? '0.5rem 1rem 1rem 1rem' : '0.5rem 2rem 1rem 2rem', display: 'flex', flexDirection: 'column', gap: isMobile ? '0.4rem' : '0.5rem', alignItems: 'center', width: '100%' }}>
+              <div style={{ padding: isMobile ? '1rem 1rem 1.5rem 1rem' : '0.5rem 2rem 1rem 2rem', display: 'flex', flexDirection: 'column', gap: isMobile ? '1rem' : '0.5rem', alignItems: 'center', width: '100%' }}>
               {/* BENITO CERATI - MÁS GRANDE Y ANCHO */}
               <div 
                 onClick={() => handleArtistClick('BENITO CERATI')}
@@ -187,7 +187,7 @@ function FlyerSection() {
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.75rem',
+                  gap: isMobile ? '1rem' : '0.75rem',
                   width: '100%'
                 }}
               >
@@ -228,7 +228,7 @@ function FlyerSection() {
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.75rem',
+                  gap: isMobile ? '1rem' : '0.75rem',
                   width: '100%'
                 }}
               >
@@ -267,7 +267,7 @@ function FlyerSection() {
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  gap: '0.75rem',
+                  gap: isMobile ? '1rem' : '0.75rem',
                   width: '100%'
                 }}
               >
