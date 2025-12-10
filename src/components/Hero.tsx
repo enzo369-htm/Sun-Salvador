@@ -1,34 +1,95 @@
 
-import { memo, useState, useEffect } from 'react';
+import { memo, useState, useEffect, useRef, useCallback } from 'react';
 
 function Hero() {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Función para intentar reproducir el video
+  const attemptPlay = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Asegurar que el video tenga los atributos necesarios
+    video.muted = true;
+    video.playsInline = true;
+    
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          // Video reproducido exitosamente
+          setVideoLoaded(true);
+        })
+        .catch((error) => {
+          // Si falla, intentar después de la primera interacción
+          const handleFirstInteraction = () => {
+            if (video) {
+              video.play()
+                .then(() => setVideoLoaded(true))
+                .catch(() => {});
+            }
+            document.removeEventListener('touchstart', handleFirstInteraction);
+            document.removeEventListener('click', handleFirstInteraction);
+            document.removeEventListener('scroll', handleFirstInteraction);
+            document.removeEventListener('touchend', handleFirstInteraction);
+          };
+          document.addEventListener('touchstart', handleFirstInteraction, { once: true, passive: true });
+          document.addEventListener('touchend', handleFirstInteraction, { once: true, passive: true });
+          document.addEventListener('click', handleFirstInteraction, { once: true });
+          document.addEventListener('scroll', handleFirstInteraction, { once: true, passive: true });
+        });
+    }
+  }, []);
 
   useEffect(() => {
     // Detectar si el usuario prefiere menos movimiento
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
-      setVideoLoaded(true); // No cargar video si prefiere menos movimiento
+      setVideoLoaded(true);
+      return;
     }
-    
-    // Forzar autoplay en móviles después de la interacción del usuario
-    const videoElement = document.querySelector('video');
-    if (videoElement) {
-      const playPromise = videoElement.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Si falla el autoplay, intentar reproducir después de la primera interacción
-          const handleFirstInteraction = () => {
-            videoElement.play().catch(() => {});
-            document.removeEventListener('touchstart', handleFirstInteraction);
-            document.removeEventListener('click', handleFirstInteraction);
-          };
-          document.addEventListener('touchstart', handleFirstInteraction, { once: true });
-          document.addEventListener('click', handleFirstInteraction, { once: true });
-        });
-      }
-    }
-  }, []);
+
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Pequeño delay para asegurar que el DOM esté listo
+    const timeoutId = setTimeout(() => {
+      attemptPlay();
+    }, 100);
+
+    // Intentar reproducir cuando el video esté listo para reproducir
+    const handleCanPlay = () => {
+      attemptPlay();
+    };
+
+    const handleCanPlayThrough = () => {
+      attemptPlay();
+    };
+
+    const handleLoadedData = () => {
+      attemptPlay();
+    };
+
+    const handleLoadedMetadata = () => {
+      attemptPlay();
+    };
+
+    // Agregar múltiples event listeners para asegurar reproducción
+    video.addEventListener('canplay', handleCanPlay);
+    video.addEventListener('canplaythrough', handleCanPlayThrough);
+    video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+    // Limpiar listeners y timeout
+    return () => {
+      clearTimeout(timeoutId);
+      video.removeEventListener('canplay', handleCanPlay);
+      video.removeEventListener('canplaythrough', handleCanPlayThrough);
+      video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
+    };
+  }, [attemptPlay]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -54,29 +115,30 @@ function Hero() {
     >
       {/* Video de fondo - optimizado para móviles */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
         webkit-playsinline="true"
         x5-playsinline="true"
+        x5-video-player-type="h5"
+        x5-video-player-fullscreen="true"
+        x5-video-orientation="portraint"
         preload="auto"
+        disablePictureInPicture
         className="absolute inset-0 w-full h-full object-cover z-0"
         style={{ 
           minWidth: '100%', 
           minHeight: '100%',
-          objectFit: 'cover'
+          objectFit: 'cover',
+          WebkitPlaysinline: true
         }}
-        onLoadedData={() => {
-          setVideoLoaded(true);
-          // Intentar reproducir después de cargar
-          const video = document.querySelector('video');
-          if (video) {
-            video.play().catch(() => {
-              // Si falla, se intentará con la interacción del usuario
-            });
-          }
-        }}
+        onLoadedData={attemptPlay}
+        onCanPlay={attemptPlay}
+        onCanPlayThrough={attemptPlay}
+        onLoadedMetadata={attemptPlay}
+        onPlay={() => setVideoLoaded(true)}
         aria-hidden="true"
       >
         <source src="/video%20sun%20salvador%202.mp4" type="video/mp4" />

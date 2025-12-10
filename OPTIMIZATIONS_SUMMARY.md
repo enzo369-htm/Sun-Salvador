@@ -72,3 +72,4 @@
 - Los componentes están optimizados para reutilización
 - La estructura permite fácil mantenimiento y escalabilidad
 
+
