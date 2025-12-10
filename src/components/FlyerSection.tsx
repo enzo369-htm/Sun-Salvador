@@ -349,7 +349,7 @@ function FlyerSection() {
                   </div>
                   <span style={{ 
                     color: '#FFFFFF', 
-                    fontSize: isMobile ? 'clamp(1rem, 3.5vw, 1.8rem)' : 'clamp(1.3rem, 3vw, 2.4rem)', 
+                    fontSize: isSmallMobile ? 'clamp(0.85rem, 4vw, 1.5rem)' : isMobile ? 'clamp(1rem, 3.5vw, 1.8rem)' : 'clamp(1.3rem, 3vw, 2.4rem)', 
                     margin: '0 0.5rem',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                     fontWeight: 400,
