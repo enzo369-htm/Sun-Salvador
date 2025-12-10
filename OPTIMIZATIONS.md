@@ -247,3 +247,4 @@ Este documento detalla todas las optimizaciones realizadas para mejorar performa
 Diciembre 2024
 
 
+
