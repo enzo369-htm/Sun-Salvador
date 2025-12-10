@@ -36,7 +36,7 @@ function Navbar() {
           <button
             onClick={() => scrollToSection('hero')}
             onKeyDown={(e) => handleKeyDown(e, 'hero')}
-            className="text-lg sm:text-xl md:text-2xl font-black transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-blue-600 cursor-pointer min-h-[44px] min-w-[44px] flex items-center"
+            className="text-lg sm:text-xl md:text-2xl font-black transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-pink-600 cursor-pointer min-h-[44px] min-w-[44px] flex items-center"
             style={{
               color: '#F2C12E',
               textShadow: `
@@ -56,7 +56,7 @@ function Navbar() {
             <button
               onClick={() => scrollToSection('about')}
               onKeyDown={(e) => handleKeyDown(e, 'about')}
-              className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base font-black text-white transition-all duration-300 hover:scale-110 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-blue-600 cursor-pointer border-2 border-transparent hover:border-yellow-300 min-h-[44px]"
+              className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base font-black text-white transition-all duration-300 hover:scale-110 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-pink-600 cursor-pointer border-2 border-transparent hover:border-yellow-300 min-h-[44px]"
               style={{
                 textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
               }}
@@ -68,7 +68,7 @@ function Navbar() {
             <button
               onClick={() => scrollToSection('artistas')}
               onKeyDown={(e) => handleKeyDown(e, 'artistas')}
-              className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base font-black text-white transition-all duration-300 hover:scale-110 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-blue-600 cursor-pointer border-2 border-transparent hover:border-yellow-300 min-h-[44px]"
+              className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base font-black text-white transition-all duration-300 hover:scale-110 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-pink-600 cursor-pointer border-2 border-transparent hover:border-yellow-300 min-h-[44px]"
               style={{
                 textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
               }}
