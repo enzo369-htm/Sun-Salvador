@@ -1,6 +1,5 @@
 import { lazy, Suspense, memo } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
-import Navbar from './components/Navbar';
 
 // Lazy loading de componentes para mejorar performance inicial
 const Hero = lazy(() => import('./components/Hero'));
@@ -29,8 +28,6 @@ function App() {
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed'
       }}>
-        <Navbar />
-        
         <div className="relative z-10">
           {/* Skip link para accesibilidad */}
           <a 
