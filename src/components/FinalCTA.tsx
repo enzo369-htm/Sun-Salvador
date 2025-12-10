@@ -29,17 +29,17 @@ function FinalCTA() {
   };
 
   return (
-    <section className="py-12 md:py-24 px-3 md:px-4 relative overflow-hidden">
+    <section className="py-6 md:py-12 px-3 md:px-4 relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8">
         {/* Imagen Sun Salvador con sol amarillo */}
         <div className="flex justify-center mb-6 md:mb-8">
           <img 
             src="/sun salvador con sol amarillo@2x.png"
             alt="Sun Salvador Festival"
-            className="w-full max-w-[280px] sm:max-w-[360px] md:max-w-[480px] lg:max-w-[600px] h-auto object-contain"
+            className="w-full max-w-[360px] sm:max-w-[480px] md:max-w-[640px] lg:max-w-[800px] h-auto object-contain"
             style={{ 
               filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.5))',
-              maxHeight: isMobile ? '120px' : '200px'
+              maxHeight: isMobile ? '160px' : '280px'
             }}
             loading="lazy"
             decoding="async"

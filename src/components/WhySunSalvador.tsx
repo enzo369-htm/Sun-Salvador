@@ -222,7 +222,7 @@ function WhySunSalvador() {
         </div>
 
         {/* Indicadores de posición */}
-        <div className="flex justify-center gap-2 mt-8">
+        <div className="flex justify-center gap-2 mt-4">
           {features.map((_, index) => (
             <button
               key={index}
