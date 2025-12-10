@@ -34,9 +34,9 @@ function App() {
     <ErrorBoundary>
       <div className="relative min-h-screen overflow-hidden bg-fixed-mobile" style={{
         backgroundImage: 'url("/Sunfondo.jpeg")',
-        backgroundSize: isMobile ? '600% auto' : 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: isMobile ? 'repeat-y' : 'no-repeat'
+        backgroundSize: isMobile ? '100% auto' : 'cover',
+        backgroundPosition: 'center top',
+        backgroundRepeat: isMobile ? 'no-repeat' : 'no-repeat'
       }}>
         <div className="relative z-10">
           {/* Skip link para accesibilidad */}
