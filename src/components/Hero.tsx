@@ -86,17 +86,17 @@ function Hero() {
       {/* Overlay oscuro sutil para mejorar legibilidad del texto */}
       <div className="absolute inset-0 bg-black opacity-20 z-10"></div>
 
-      {/* Nubes decorativas - reducidas para mejor rendimiento */}
-      <div className="absolute top-32 left-4 w-28 md:w-36 opacity-50 animate-float gpu-accelerated" style={{ animationDelay: '0s', zIndex: 15 }} aria-hidden="true">
+      {/* Nubes decorativas - mucho más pequeñas en móvil */}
+      <div className="absolute top-32 left-4 w-16 sm:w-20 md:w-28 lg:w-36 opacity-50 animate-float gpu-accelerated" style={{ animationDelay: '0s', zIndex: 15 }} aria-hidden="true">
         <img src="/Nube-1.png" alt="" className="w-full h-auto" loading="lazy" decoding="async" width="144" height="96" />
       </div>
-      <div className="absolute top-28 right-8 w-32 md:w-40 opacity-45 animate-float gpu-accelerated" style={{ animationDelay: '1.5s', zIndex: 15 }} aria-hidden="true">
+      <div className="absolute top-28 right-8 w-20 sm:w-24 md:w-32 lg:w-40 opacity-45 animate-float gpu-accelerated" style={{ animationDelay: '1.5s', zIndex: 15 }} aria-hidden="true">
         <img src="/Nube-2.png" alt="" className="w-full h-auto" loading="lazy" decoding="async" width="160" height="120" />
       </div>
-      <div className="absolute top-40 right-1/4 w-28 md:w-36 opacity-50 animate-float gpu-accelerated" style={{ animationDelay: '0.8s', zIndex: 15 }} aria-hidden="true">
+      <div className="absolute top-40 right-1/4 w-16 sm:w-20 md:w-28 lg:w-36 opacity-50 animate-float gpu-accelerated" style={{ animationDelay: '0.8s', zIndex: 15 }} aria-hidden="true">
         <img src="/Nube-1.png" alt="" className="w-full h-auto" loading="lazy" decoding="async" width="144" height="96" />
       </div>
-      <div className="absolute top-36 left-1/3 w-24 md:w-32 opacity-40 animate-float gpu-accelerated" style={{ animationDelay: '2.2s', zIndex: 15 }} aria-hidden="true">
+      <div className="absolute top-36 left-1/3 w-14 sm:w-18 md:w-24 lg:w-32 opacity-40 animate-float gpu-accelerated" style={{ animationDelay: '2.2s', zIndex: 15 }} aria-hidden="true">
         <img src="/Nube-3.png" alt="" className="w-full h-auto" loading="lazy" decoding="async" width="128" height="80" />
       </div>
 
@@ -107,7 +107,7 @@ function Hero() {
           <img 
             src="/sun salvador solo@2x.png"
             alt="Sun Salvador Festival"
-            className="w-full max-w-[240px] xs:max-w-[280px] sm:max-w-xl md:max-w-2xl lg:max-w-3xl h-auto object-contain relative"
+            className="w-full max-w-[320px] sm:max-w-xl md:max-w-2xl lg:max-w-3xl h-auto object-contain relative"
             style={{ filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.5))' }}
             loading="eager"
             fetchpriority="high"
@@ -149,7 +149,7 @@ function Hero() {
             backgroundColor: 'transparent',
             color: '#FF1CDA',
             fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-            fontSize: 'clamp(1rem, 4.5vw, 2.5rem)',
+            fontSize: 'clamp(1.3rem, 5.5vw, 2.5rem)',
             fontWeight: 400,
             letterSpacing: '0.05em',
             textShadow: `

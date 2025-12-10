@@ -25,7 +25,7 @@ function About() {
   return (
     <section id="about" className="relative py-6 md:py-10 px-3 md:px-4 overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="p-4 md:p-8 lg:p-12" style={{
+        <div className="p-3 sm:p-4 md:p-8 lg:p-12" style={{
           backgroundColor: 'rgba(255, 28, 218, 0.4)',
           border: '6px solid #000',
           boxShadow: `

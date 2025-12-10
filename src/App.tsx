@@ -1,4 +1,4 @@
-import { lazy, Suspense, memo } from 'react';
+import { lazy, Suspense, memo, useState, useEffect } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 
 // Lazy loading de componentes para mejorar performance inicial
@@ -19,6 +19,17 @@ const SectionSkeleton = memo(() => (
 SectionSkeleton.displayName = 'SectionSkeleton';
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <ErrorBoundary>
       <div className="relative min-h-screen overflow-hidden" style={{
@@ -26,7 +37,7 @@ function App() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: isMobile ? 'scroll' : 'fixed'
       }}>
         <div className="relative z-10">
           {/* Skip link para accesibilidad */}

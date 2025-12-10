@@ -79,13 +79,16 @@ function Tickets() {
         {/* Contenedor de los botones de compra */}
         <div style={{
           display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
           justifyContent: 'center',
           alignItems: 'center',
           gap: isMobile ? '1rem' : '2rem',
           flexWrap: 'wrap',
           maxWidth: '1200px',
           margin: '0 auto',
-          background: 'transparent'
+          background: 'transparent',
+          width: '100%',
+          padding: isMobile ? '0 0.5rem' : '0'
         }}>
           {/* Botón 1: Entrada General */}
           <a
@@ -102,14 +105,16 @@ function Tickets() {
             <div className="buy-button" style={{
               backgroundColor: '#6722d3',
               border: '4px solid #000',
-              padding: isMobile ? '1rem 1.5rem' : '1.5rem 2.5rem',
+              padding: isMobile ? '1rem 1rem' : '1.5rem 2.5rem',
               borderRadius: '8px',
               boxShadow: '0 8px 16px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.3)',
-              transition: 'all 0.3s ease'
+              transition: 'all 0.3s ease',
+              width: isMobile ? '100%' : 'auto',
+              maxWidth: isMobile ? '100%' : 'none'
             }}>
               <span style={{
                 color: '#FFF',
-                fontSize: 'clamp(1rem, 3vw, 1.5rem)',
+                fontSize: isMobile ? 'clamp(0.9rem, 3.5vw, 1.3rem)' : 'clamp(1rem, 3vw, 1.5rem)',
                 fontWeight: 900,
                 letterSpacing: '0.1em',
                 textShadow: `
@@ -122,8 +127,10 @@ function Tickets() {
                 paintOrder: 'stroke fill',
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '0.5rem',
-                whiteSpace: 'nowrap',
+                whiteSpace: isMobile ? 'normal' : 'nowrap',
+                textAlign: 'center',
                 filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))'
               }}>
                 🎫 CLICKEA PARA COMPRAR ENTRADA GENERAL →
@@ -151,21 +158,25 @@ function Tickets() {
             <div className="buy-button" style={{
               backgroundColor: '#FF1CDA',
               border: '4px solid #000',
-              padding: isMobile ? '1rem 1.5rem' : '1.75rem 2.75rem',
+              padding: isMobile ? '1rem 1rem' : '1.75rem 2.75rem',
               borderRadius: '8px',
               boxShadow: '0 8px 16px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.3)',
-              transition: 'all 0.3s ease'
+              transition: 'all 0.3s ease',
+              width: isMobile ? '100%' : 'auto',
+              maxWidth: isMobile ? '100%' : 'none'
             }}>
               <span style={{
                 color: '#000',
-                fontSize: 'clamp(1rem, 3vw, 1.65rem)',
+                fontSize: isMobile ? 'clamp(0.9rem, 3.5vw, 1.3rem)' : 'clamp(1rem, 3vw, 1.65rem)',
                 fontWeight: 900,
                 letterSpacing: '0.1em',
                 textShadow: '2px 2px 0px rgba(255,255,255,0.5)',
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '0.5rem',
-                whiteSpace: 'nowrap'
+                whiteSpace: isMobile ? 'normal' : 'nowrap',
+                textAlign: 'center'
               }}>
                 🎫 CLICKEA PARA COMPRAR PROMO 4x3 →
               </span>
