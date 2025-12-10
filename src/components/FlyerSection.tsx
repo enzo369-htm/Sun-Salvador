@@ -148,7 +148,7 @@ function FlyerSection() {
           zIndex: 10
         }}>
               {/* Banner superior dentro del recuadro - ocupa todo el ancho */}
-              <div className="w-full" style={{ willChange: 'transform', marginBottom: '0.5rem', marginTop: 0 }}>
+              <div className="w-full" style={{ willChange: 'transform', marginBottom: isMobile ? '1rem' : '0.5rem', marginTop: 0 }}>
                 <p className={`text-white font-bold ${isMobile ? 'py-3' : 'py-3'} border-3 border-black text-center`} style={{
                   fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                   fontSize: isMobile ? 'clamp(0.85rem, 3.5vw, 1.1rem)' : 'clamp(1rem, 2vw, 1.5rem)',
