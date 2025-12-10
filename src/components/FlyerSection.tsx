@@ -310,7 +310,7 @@ function FlyerSection() {
                   <span style={{
                     color: '#FF1CDA',
                     fontFamily: '"Pacifico", "Bangers", "Luckiest Guy", cursive',
-                    fontSize: isMobile ? 'clamp(0.9rem, 3vw, 1.5rem)' : 'clamp(1.2rem, 2.5vw, 2rem)',
+                    fontSize: isMobile ? 'clamp(1.2rem, 4vw, 2rem)' : 'clamp(1.2rem, 2.5vw, 2rem)',
                     fontWeight: 400,
                     letterSpacing: '0.05em',
                     textShadow: '3px 3px 0px #000, 0 0 15px rgba(242,46,210,0.6)',
