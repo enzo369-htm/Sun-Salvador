@@ -3,10 +3,12 @@ import { useState, useEffect, memo } from 'react';
 
 // Función helper para codificar correctamente las rutas de imágenes
 const getImageUrl = (path: string): string => {
-  if (path.includes(' ')) {
-    return encodeURI(path);
+  // Para archivos sin espacios, devolver directamente
+  if (!path.includes(' ')) {
+    return path;
   }
-  return path;
+  // Para archivos con espacios, codificar
+  return encodeURI(path);
 };
 
 
