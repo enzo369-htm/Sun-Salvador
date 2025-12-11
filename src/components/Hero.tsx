@@ -200,13 +200,14 @@ function Hero() {
         </div>
 
         {/* Botón "Comprar mi entrada" */}
-        <button
-          onClick={() => scrollToSection('artistas')}
-          onKeyDown={(e) => handleKeyDown(e, 'artistas')}
+        <a
+          href="https://clubtopado.com.ar/evento/155/SunSalvador"
+          target="_blank"
+          rel="noopener noreferrer"
           className="mt-6 sm:mt-8 md:mt-16 px-4 py-3 sm:px-6 sm:py-4 md:px-10 md:py-5 font-black text-lg sm:text-xl md:text-2xl lg:text-3xl
                      border-3 sm:border-4 border-black transition-all duration-300 transform hover:scale-110
                      active:scale-95 focus:scale-110 focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:ring-offset-2
-                     inline-block cursor-pointer min-h-[44px]"
+                     inline-block cursor-pointer min-h-[44px] no-underline"
           style={{
             backgroundColor: 'transparent',
             color: '#FF1CDA',
@@ -222,12 +223,17 @@ function Hero() {
             WebkitTextFillColor: '#FF1CDA',
             paintOrder: 'stroke fill',
             boxShadow: '8px 8px 0px rgba(0,0,0,0.6)',
-            filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))'
+            filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))',
+            textDecoration: 'none'
           }}
-          aria-label="Comprar entrada - Ir a sección de artistas"
+          aria-label="Comprar entrada - Abre en nueva pestaña"
+          onClick={() => {
+            // Tracking de evento (preparado para analytics)
+            // gtag('event', 'click', { event_category: 'CTA', event_label: 'Hero Button' });
+          }}
         >
           ¡COMPRAR MI ENTRADA!
-        </button>
+        </a>
 
         {/* Flecha indicadora hacia abajo */}
         <button
