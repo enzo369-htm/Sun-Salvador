@@ -179,7 +179,7 @@ function Hero() {
           />
           {/* Sol amarillo al lado de la N */}
           <img 
-            src="/Sol-amarillo@2x.png"
+            src="/SOLROSA.png"
             alt=""
             className="absolute gpu-accelerated"
             style={{
