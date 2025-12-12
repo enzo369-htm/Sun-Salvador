@@ -174,7 +174,7 @@ function FlyerSection() {
                   paddingLeft: isMobile ? '0.75rem' : '1rem',
                   paddingRight: isMobile ? '0.75rem' : '1rem'
                 }}>
-                  SABADO 17 DE ENERO - AV BOLIVIA 1501
+                  SABADO 17 DE ENERO - DIONISIO (AV BOLIVIA 1501)
                 </p>
               </div>
               

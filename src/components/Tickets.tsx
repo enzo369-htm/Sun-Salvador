@@ -186,6 +186,56 @@ function Tickets() {
               </span>
             </div>
           </a>
+
+          {/* Botón 3: Comprar entradas físicas */}
+          <a
+            href="https://maps.app.goo.gl/7mqZ5msUcXiaQdsp7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ticket-button"
+            style={{ 
+              transform: 'rotate(-1deg)',
+              cursor: 'pointer',
+              textDecoration: 'none'
+            }}
+            aria-label="Comprar entradas físicas - Abre en nueva pestaña"
+          >
+            <div className="buy-button" style={{
+              backgroundColor: '#6722d3',
+              border: '4px solid #000',
+              padding: isMobile ? '1rem 1rem' : '1.5rem 2.5rem',
+              borderRadius: '8px',
+              boxShadow: '0 8px 16px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.3)',
+              transition: 'all 0.3s ease',
+              width: isMobile ? '100%' : 'auto',
+              maxWidth: isMobile ? '100%' : 'none'
+            }}>
+              <span style={{
+                color: '#FFF',
+                fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                fontSize: isMobile ? 'clamp(0.9rem, 3.5vw, 1.3rem)' : 'clamp(1rem, 3vw, 1.5rem)',
+                fontWeight: 400,
+                letterSpacing: '0.05em',
+                textShadow: `
+                  3px 3px 0px #000,
+                  5px 5px 0px rgba(0,0,0,0.8),
+                  0 0 10px rgba(0,0,0,0.5)
+                `,
+                WebkitTextStroke: '2px #000',
+                WebkitTextFillColor: '#FFF',
+                paintOrder: 'stroke fill',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+                whiteSpace: isMobile ? 'normal' : 'nowrap',
+                textAlign: 'center',
+                filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))'
+              }}>
+                🎫 COMPRAR ENTRADAS FÍSICAS →
+              </span>
+            </div>
+          </a>
         </div>
 
         {/* Texto "CAPACIDAD LIMITADA" */}

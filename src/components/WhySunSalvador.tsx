@@ -90,11 +90,7 @@ function WhySunSalvador() {
           }}>
             LA EXPERIENCIA
           </h2>
-        </div>
-
-        {/* Subtítulo */}
-        <div className="text-center mb-10">
-          <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-wide" style={{
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-wide mt-4" style={{
             color: '#F2C12E',
             fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
             fontWeight: 400,
