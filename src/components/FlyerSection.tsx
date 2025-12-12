@@ -406,7 +406,12 @@ function FlyerSection() {
           <div
             className="relative border-4 border-black max-w-2xl w-full max-h-[80vh] overflow-y-auto
                         shadow-[10px_10px_0px_black] animate-fadeIn"
-            style={{ backgroundColor: '#0013FF' }}
+            style={{
+              backgroundImage: 'url("/fondo rosa.png")',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center',
+              backgroundRepeat: 'no-repeat'
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Botón de cierre */}
@@ -449,7 +454,7 @@ function FlyerSection() {
                     </h3>
 
                     {/* Información */}
-                    <div className="border-4 border-black p-6 mb-6" style={{ backgroundColor: '#FF1CDA' }}>
+                    <div className="border-4 border-black p-6 mb-6" style={{ backgroundColor: '#0013FF' }}>
                       <p className="text-white text-base md:text-lg leading-relaxed font-bold">
                         {artist.info}
                       </p>
