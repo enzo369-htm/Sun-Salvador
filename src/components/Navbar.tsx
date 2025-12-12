@@ -39,6 +39,8 @@ function Navbar() {
             className="text-lg sm:text-xl md:text-2xl font-black transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-pink-600 cursor-pointer min-h-[44px] min-w-[44px] flex items-center"
             style={{
               color: '#F2C12E',
+              fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+              fontWeight: 400,
               textShadow: `
                 2px 2px 0px #000,
                 4px 4px 0px #000,
@@ -58,6 +60,9 @@ function Navbar() {
               onKeyDown={(e) => handleKeyDown(e, 'about')}
               className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base font-black text-white transition-all duration-300 hover:scale-110 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-pink-600 cursor-pointer border-2 border-transparent hover:border-yellow-300 min-h-[44px]"
               style={{
+                fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                fontWeight: 400,
+                letterSpacing: '0.05em',
                 textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
               }}
               role="menuitem"
@@ -70,6 +75,9 @@ function Navbar() {
               onKeyDown={(e) => handleKeyDown(e, 'artistas')}
               className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base font-black text-white transition-all duration-300 hover:scale-110 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 focus:ring-offset-pink-600 cursor-pointer border-2 border-transparent hover:border-yellow-300 min-h-[44px]"
               style={{
+                fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                fontWeight: 400,
+                letterSpacing: '0.05em',
                 textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
               }}
               role="menuitem"
@@ -82,6 +90,9 @@ function Navbar() {
               onKeyDown={(e) => handleKeyDown(e, 'tickets')}
               className="px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-base font-black transition-all duration-300 hover:scale-110 focus:scale-110 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-yellow-300 cursor-pointer border-2 border-yellow-300 min-h-[44px]"
               style={{
+                fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                fontWeight: 400,
+                letterSpacing: '0.05em',
                 backgroundColor: '#F2C12E',
                 color: '#000',
                 textShadow: 'none',

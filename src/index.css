@@ -31,16 +31,20 @@
 
   body {
     @apply antialiased;
-    /* Tipografía principal para bloques largos de texto */
-    font-family: 'Futura PT Condensed', 'Oswald', 'Arial Narrow', sans-serif;
+    /* Tipografía principal - Anton para toda la web */
+    font-family: 'Anton', 'Impact', 'Arial Black', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
   }
   
-  /* Tipografía secundaria para palabras clave y bloques cortos */
+  /* Tipografía para todos los elementos de texto */
   h1, h2, h3, h4, h5, h6,
+  p, span, div, a, button,
   .font-secondary,
-  button,
   .btn {
-    font-family: 'Monument Extended', 'Space Grotesk', 'Impact', 'Arial Black', sans-serif;
+    font-family: 'Anton', 'Impact', 'Arial Black', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
   }
 }
 

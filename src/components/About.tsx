@@ -37,6 +37,8 @@ function About() {
         }}>
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-8 tracking-tight" style={{
             color: '#F2C12E',
+            fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+            fontWeight: 400,
             textShadow: `
               4px 4px 0px rgba(0,0,0,0.8),
               8px 8px 0px rgba(0,0,0,0.6),
@@ -47,7 +49,7 @@ function About() {
             WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
             WebkitTextFillColor: '#F2C12E',
             paintOrder: 'stroke fill',
-            letterSpacing: '0.1em',
+            letterSpacing: '0.05em',
             transform: 'perspective(500px) rotateX(5deg) rotateY(-2deg)',
             filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.8))',
             transition: 'transform 0.3s ease'
@@ -78,6 +80,9 @@ function About() {
                   }}
                 >
                   <div className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed font-bold font-primary" style={{
+                    fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                    fontWeight: 400,
+                    letterSpacing: '0.05em',
                     textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)',
                     filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.6))'
                   }}>

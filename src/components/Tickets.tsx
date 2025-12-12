@@ -58,6 +58,8 @@ function Tickets() {
           }}>
             <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-wider" style={{
               color: '#FFF',
+              fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+              fontWeight: 400,
               textShadow: `
                 3px 3px 0px #000,
                 5px 5px 0px rgba(0,0,0,0.8),
@@ -66,7 +68,7 @@ function Tickets() {
               WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
               WebkitTextFillColor: '#FFF',
               paintOrder: 'stroke fill',
-              letterSpacing: '0.1em',
+              letterSpacing: '0.05em',
               transform: 'perspective(500px) rotateX(5deg) rotateY(-2deg)',
               filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))',
               transition: 'transform 0.3s ease'
@@ -114,9 +116,10 @@ function Tickets() {
             }}>
               <span style={{
                 color: '#FFF',
+                fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                 fontSize: isMobile ? 'clamp(0.9rem, 3.5vw, 1.3rem)' : 'clamp(1rem, 3vw, 1.5rem)',
-                fontWeight: 900,
-                letterSpacing: '0.1em',
+                fontWeight: 400,
+                letterSpacing: '0.05em',
                 textShadow: `
                   3px 3px 0px #000,
                   5px 5px 0px rgba(0,0,0,0.8),
@@ -167,9 +170,10 @@ function Tickets() {
             }}>
               <span style={{
                 color: '#000',
+                fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                 fontSize: isMobile ? 'clamp(0.9rem, 3.5vw, 1.3rem)' : 'clamp(1rem, 3vw, 1.65rem)',
-                fontWeight: 900,
-                letterSpacing: '0.1em',
+                fontWeight: 400,
+                letterSpacing: '0.05em',
                 textShadow: '2px 2px 0px rgba(255,255,255,0.5)',
                 display: 'flex',
                 alignItems: 'center',
@@ -188,8 +192,10 @@ function Tickets() {
         <div className="text-center mt-8 md:mt-12">
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black tracking-wider" style={{
             color: '#DC2626',
+            fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+            fontWeight: 400,
             textShadow: '3px 3px 0px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.5)',
-            letterSpacing: '0.15em',
+            letterSpacing: '0.05em',
             textDecoration: 'underline',
             textDecorationThickness: '3px',
             textUnderlineOffset: '8px'

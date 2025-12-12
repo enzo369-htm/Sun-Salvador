@@ -98,7 +98,11 @@ function App() {
         </div>
 
         <footer className="relative z-10 bg-black border-t-2 border-yellow-300 py-6 text-center">
-          <p className="font-black text-white text-base tracking-wide">
+          <p className="font-black text-white text-base tracking-wide" style={{
+            fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+            fontWeight: 400,
+            letterSpacing: '0.05em'
+          }}>
             © 2025 SUN SALVADOR FESTIVAL • JUJUY, ARGENTINA
           </p>
         </footer>

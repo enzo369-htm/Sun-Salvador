@@ -73,6 +73,8 @@ function WhySunSalvador() {
         }}>
           <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-wider" style={{ 
             color: '#FFF',
+            fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+            fontWeight: 400,
             textShadow: `
               3px 3px 0px #000,
               5px 5px 0px rgba(0,0,0,0.8),
@@ -81,7 +83,7 @@ function WhySunSalvador() {
             WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
             WebkitTextFillColor: '#FFF',
             paintOrder: 'stroke fill',
-            letterSpacing: '0.1em',
+            letterSpacing: '0.05em',
             transform: 'perspective(500px) rotateX(5deg) rotateY(-2deg)',
             filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.8))',
             transition: 'transform 0.3s ease'
@@ -94,7 +96,8 @@ function WhySunSalvador() {
         <div className="text-center mb-10">
           <h3 className="text-xl sm:text-2xl md:text-3xl font-black tracking-wide" style={{
             color: '#F2C12E',
-            fontFamily: '"Monument Extended", "Space Grotesk", "Impact", "Arial Black", sans-serif',
+            fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+            fontWeight: 400,
             textShadow: `
               3px 3px 0px #000,
               5px 5px 0px rgba(0,0,0,0.8)
@@ -152,9 +155,10 @@ function WhySunSalvador() {
                     }}
                   >
                     <h3 className="font-black text-white" style={{
+                      fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                       fontSize: 'clamp(1.1rem, 3.5vw, 1.6rem)',
-                      fontWeight: 900,
-                      letterSpacing: '0.1em',
+                      fontWeight: 400,
+                      letterSpacing: '0.05em',
                       textShadow: `
                         3px 3px 0px #000,
                         5px 5px 0px rgba(0,0,0,0.8),
@@ -170,9 +174,10 @@ function WhySunSalvador() {
                     </h3>
 
                     <p className="leading-relaxed font-bold text-white" style={{
+                      fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                       fontSize: 'clamp(1rem, 3vw, 1.5rem)',
-                      fontWeight: 900,
-                      letterSpacing: '0.1em',
+                      fontWeight: 400,
+                      letterSpacing: '0.05em',
                       textShadow: `
                         3px 3px 0px #000,
                         5px 5px 0px rgba(0,0,0,0.8),

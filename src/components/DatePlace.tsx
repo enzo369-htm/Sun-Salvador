@@ -24,6 +24,8 @@ function DatePlace() {
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="border-8 border-black inline-block w-full text-center mb-12 py-4" style={{ backgroundColor: '#0013FF' }}>
           <h2 className="text-6xl md:text-7xl font-black tracking-wider text-white" style={{
+            fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+            fontWeight: 400,
             textShadow: `
               3px 3px 0px #FBBF24,
               6px 6px 0px #F59E0B,
@@ -32,7 +34,7 @@ function DatePlace() {
               15px 15px 20px rgba(0,0,0,0.5)
             `,
             WebkitTextStroke: '2px #B45309',
-            letterSpacing: '0.1em'
+            letterSpacing: '0.05em'
           }}>
             FECHA Y LUGAR
           </h2>
@@ -46,12 +48,29 @@ function DatePlace() {
                 <Calendar className="w-12 h-12 text-white" strokeWidth={3} />
               </div>
               <div>
-                <h3 className="text-3xl font-black text-black mb-2 tracking-tight">CUÁNDO</h3>
-                <p className="text-black text-2xl md:text-3xl font-black">
+                <h3 className="text-3xl font-black text-black mb-2 tracking-tight" style={{
+                  fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.05em'
+                }}>CUÁNDO</h3>
+                <p className="text-black text-2xl md:text-3xl font-black" style={{
+                  fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.05em'
+                }}>
                   Sábado 17
                 </p>
-                <p className="text-black text-2xl font-black mt-1">de enero</p>
-                <p className="text-xl font-black mt-2" style={{ color: '#0013FF' }}>2025</p>
+                <p className="text-black text-2xl font-black mt-1" style={{
+                  fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.05em'
+                }}>de enero</p>
+                <p className="text-xl font-black mt-2" style={{ 
+                  color: '#0013FF',
+                  fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.05em'
+                }}>2025</p>
               </div>
             </div>
           </div>
@@ -63,12 +82,29 @@ function DatePlace() {
                 <MapPin className="w-12 h-12 text-white" strokeWidth={3} />
               </div>
               <div>
-                <h3 className="text-3xl font-black text-black mb-2 tracking-tight">DÓNDE</h3>
-                <p className="text-black text-2xl md:text-3xl font-black">
+                <h3 className="text-3xl font-black text-black mb-2 tracking-tight" style={{
+                  fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.05em'
+                }}>DÓNDE</h3>
+                <p className="text-black text-2xl md:text-3xl font-black" style={{
+                  fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.05em'
+                }}>
                   Av. Bolivia
                 </p>
-                <p className="text-black text-2xl font-black mt-1">1501</p>
-                <p className="text-lg font-black mt-2" style={{ color: '#0013FF' }}>San Salvador</p>
+                <p className="text-black text-2xl font-black mt-1" style={{
+                  fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.05em'
+                }}>1501</p>
+                <p className="text-lg font-black mt-2" style={{ 
+                  color: '#0013FF',
+                  fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                  fontWeight: 400,
+                  letterSpacing: '0.05em'
+                }}>San Salvador</p>
               </div>
             </div>
           </div>
