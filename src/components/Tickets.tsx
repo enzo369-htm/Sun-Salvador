@@ -13,7 +13,7 @@ function Tickets() {
   }, []);
 
   return (
-    <section id="tickets" className="relative py-8 md:py-16 px-3 md:px-4 overflow-hidden">
+    <section id="tickets" className="relative py-8 md:py-16 px-4 overflow-hidden">
       <style>{`
         .ticket-button {
           position: relative;
@@ -34,7 +34,11 @@ function Tickets() {
       <div className="max-w-6xl mx-auto relative z-10" style={{
         backgroundColor: 'rgba(0, 19, 255, 0.4)',
         border: '6px solid #000',
-        boxShadow: `
+        boxShadow: isMobile ? `
+          8px 8px 0px rgba(0,0,0,0.9),
+          16px 16px 0px rgba(0,0,0,0.5),
+          inset 0 0 25px rgba(0, 19, 255, 0.2)
+        ` : `
           15px 15px 0px rgba(0,0,0,0.9),
           30px 30px 0px rgba(0,0,0,0.5),
           inset 0 0 25px rgba(0, 19, 255, 0.2)
@@ -48,7 +52,11 @@ function Tickets() {
             display: 'inline-block',
             backgroundColor: 'rgba(0, 19, 255, 0.4)',
             border: '6px solid #000',
-            boxShadow: `
+            boxShadow: isMobile ? `
+              8px 8px 0px rgba(0,0,0,0.9),
+              16px 16px 0px rgba(0,0,0,0.5),
+              inset 0 0 25px rgba(0, 19, 255, 0.2)
+            ` : `
               15px 15px 0px rgba(0,0,0,0.9),
               30px 30px 0px rgba(0,0,0,0.5),
               inset 0 0 25px rgba(0, 19, 255, 0.2)

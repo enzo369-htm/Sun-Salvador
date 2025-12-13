@@ -1,4 +1,4 @@
-import { Music, ExternalLink, X } from 'lucide-react';
+import { Music, ExternalLink, X, Headphones } from 'lucide-react';
 import { useState, useEffect, memo } from 'react';
 
 // Función helper para codificar correctamente las rutas de imágenes
@@ -108,6 +108,22 @@ function FlyerSection() {
           z-index: 1;
           animation: noise 0.2s infinite;
         }
+        .group:hover {
+          filter: brightness(1.1);
+        }
+        .group::after {
+          content: '👆';
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          font-size: 1.2rem;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          pointer-events: none;
+        }
+        .group:hover::after {
+          opacity: 1;
+        }
       `}</style>
       {/* Gradiente de transición al inicio - continúa desde el Hero */}
       <div 
@@ -142,7 +158,7 @@ function FlyerSection() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
-          gap: isMobile ? '1.5rem' : '1rem',
+          gap: 0,
           alignItems: 'stretch',
           width: 'auto',
           maxWidth: '95%',
@@ -150,7 +166,7 @@ function FlyerSection() {
           zIndex: 10
         }}>
               {/* Banner superior dentro del recuadro - ocupa todo el ancho */}
-              <div className="w-full" style={{ willChange: 'transform', marginBottom: isMobile ? '1rem' : '0.5rem', marginTop: 0 }}>
+              <div className="w-full" style={{ willChange: 'transform', marginBottom: 0, marginTop: 0 }}>
                 <p className={`text-white font-bold ${isMobile ? 'py-3' : 'py-3'} border-3 border-black text-center`} style={{
                   fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                   fontSize: isMobile ? 'clamp(1.1rem, 4.5vw, 1.5rem)' : 'clamp(1rem, 2vw, 1.5rem)',
@@ -179,19 +195,21 @@ function FlyerSection() {
               </div>
               
               {/* Contenedor interno para los nombres con padding */}
-              <div style={{ padding: isMobile ? '1rem 1rem 1.5rem 1rem' : '0.5rem 2rem 1rem 2rem', display: 'flex', flexDirection: 'column', gap: isMobile ? '1rem' : '0.5rem', alignItems: 'center', width: '100%' }}>
+              <div style={{ padding: isMobile ? '1rem 1rem 1rem 1rem' : '0.5rem 2rem 0.5rem 2rem', marginTop: isMobile ? '1.5rem' : '1rem', marginBottom: isMobile ? '1rem' : '0.5rem', display: 'flex', flexDirection: 'column', gap: isMobile ? '1rem' : '0.5rem', alignItems: 'center', width: '100%', flex: 1 }}>
               {/* BENITO CERATI - MÁS GRANDE Y ANCHO */}
               <div 
                 onClick={() => handleArtistClick('BENITO CERATI')}
-                className="cursor-pointer transition-all duration-300 hover:scale-105"
+                className="cursor-pointer transition-all duration-300 hover:scale-105 group"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: isMobile ? '1rem' : '0.75rem',
-                  width: '100%'
+                  width: '100%',
+                  position: 'relative'
                 }}
+                title="Click para más información"
               >
                 <div
                   className="text-center"
@@ -224,15 +242,17 @@ function FlyerSection() {
               {/* HOLLYWOOD BUNGALOWS - tamaño medio */}
               <div 
                 onClick={() => handleArtistClick('HOLLYWOOD BUNGALOWS')}
-                className="cursor-pointer transition-all duration-300 hover:scale-105"
+                className="cursor-pointer transition-all duration-300 hover:scale-105 group"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: isMobile ? '1rem' : '0.75rem',
-                  width: '100%'
+                  width: '100%',
+                  position: 'relative'
                 }}
+                title="Click para más información"
               >
                 <div
                   className="text-center"
@@ -263,15 +283,17 @@ function FlyerSection() {
               {/* PEQUEÑO TIRANO - más pequeño */}
               <div 
                 onClick={() => handleArtistClick('PEQUEÑO TIRANO')}
-                className="cursor-pointer transition-all duration-300 hover:scale-105"
+                className="cursor-pointer transition-all duration-300 hover:scale-105 group"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: isMobile ? '1rem' : '0.75rem',
-                  width: '100%'
+                  width: '100%',
+                  position: 'relative'
                 }}
+                title="Click para más información"
               >
                 <div
                   className="text-center"
@@ -334,8 +356,9 @@ function FlyerSection() {
                   </span>
                   <div 
                     onClick={() => handleDJClick('MAR VACCARELLA')}
-                    className="inline-block cursor-pointer transition-all duration-300 hover:scale-105"
+                    className="inline-block cursor-pointer transition-all duration-300 hover:scale-105 group"
                     style={{ position: 'relative' }}
+                    title="Click para más información"
                   >
                     <div
                       style={{
@@ -366,8 +389,9 @@ function FlyerSection() {
                   }}> - </span>
                   <div 
                     onClick={() => handleDJClick('SAPAI')}
-                    className="inline-block cursor-pointer transition-all duration-300 hover:scale-105"
+                    className="inline-block cursor-pointer transition-all duration-300 hover:scale-105 group"
                     style={{ position: 'relative' }}
+                    title="Click para más información"
                   >
                     <div
                       style={{
@@ -392,6 +416,51 @@ function FlyerSection() {
                   </div>
                 </div>
               </div>
+              </div>
+              
+              {/* Banner inferior dentro del recuadro - botón clickeable a Spotify */}
+              <div className="w-full" style={{ willChange: 'transform', marginTop: 0, marginBottom: 0 }}>
+                <a
+                  href="https://open.spotify.com/playlist/1SGYrBPx92nL6cL6yUK5a4?si=Cu8LjLIUREWXDch2Xe2SgA&pi=AZs-lYHvQnO6S"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95"
+                  style={{
+                    textDecoration: 'none',
+                    display: 'block',
+                    width: '100%'
+                  }}
+                >
+                  <p className={`text-white font-bold ${isMobile ? 'py-3' : 'py-3'} border-3 border-black text-center`} style={{
+                    fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                    fontSize: isMobile ? 'clamp(1.1rem, 4.5vw, 1.5rem)' : 'clamp(1rem, 2vw, 1.5rem)',
+                    backgroundColor: '#FF1CDA',
+                    textShadow: '3px 3px 0px #000, 5px 5px 0px rgba(0,0,0,0.5)',
+                    WebkitTextStroke: '1.5px #000',
+                    letterSpacing: '0.05em',
+                    boxShadow: `
+                      12px 0px 0px rgba(0,0,0,0.9),
+                      24px 0px 0px rgba(0,0,0,0.5),
+                      inset 0 0 15px rgba(255, 28, 218, 0.2)
+                    `,
+                    transform: 'none',
+                    borderWidth: '3px',
+                    fontWeight: 400,
+                    position: 'relative',
+                    display: 'block',
+                    width: '100%',
+                    boxSizing: 'border-box',
+                    margin: 0,
+                    paddingLeft: isMobile ? '0.75rem' : '1rem',
+                    paddingRight: isMobile ? '0.75rem' : '1rem'
+                  }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                      <Headphones className="w-5 h-5 md:w-6 md:h-6" strokeWidth={3} style={{ flexShrink: 0 }} />
+                      Escuchá a los artistas del Sun salvador
+                      <ExternalLink className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} style={{ flexShrink: 0 }} />
+                    </span>
+                  </p>
+                </a>
               </div>
             </div>
       </div>

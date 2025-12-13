@@ -9,6 +9,16 @@ function About() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const goToSlide = useCallback((index: number) => {
     setCurrentIndex(index);
@@ -28,12 +38,18 @@ function About() {
         <div className="p-3 sm:p-4 md:p-8 lg:p-12" style={{
           backgroundColor: 'rgba(255, 28, 218, 0.4)',
           border: '6px solid #000',
-          boxShadow: `
+          boxShadow: isMobile ? `
+            8px 8px 0px rgba(0,0,0,0.9),
+            16px 16px 0px rgba(0,0,0,0.5),
+            inset 0 0 25px rgba(255, 28, 218, 0.2)
+          ` : `
             15px 15px 0px rgba(0,0,0,0.9),
             30px 30px 0px rgba(0,0,0,0.5),
             inset 0 0 25px rgba(255, 28, 218, 0.2)
           `,
-          backdropFilter: 'blur(10px)'
+          backdropFilter: 'blur(10px)',
+          marginLeft: isMobile ? '0.5rem' : '0',
+          marginRight: isMobile ? '0.5rem' : '0'
         }}>
           <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black mb-4 md:mb-8 tracking-tight" style={{
             color: '#F2C12E',

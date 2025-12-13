@@ -52,12 +52,18 @@ function FinalCTA() {
         <div className="p-5 md:p-8 lg:p-12" style={{
           backgroundColor: 'rgba(255, 28, 218, 0.4)',
           border: '6px solid #000',
-          boxShadow: `
+          boxShadow: isMobile ? `
+            8px 8px 0px rgba(0,0,0,0.9),
+            16px 16px 0px rgba(0,0,0,0.5),
+            inset 0 0 25px rgba(255, 28, 218, 0.2)
+          ` : `
             15px 15px 0px rgba(0,0,0,0.9),
             30px 30px 0px rgba(0,0,0,0.5),
             inset 0 0 25px rgba(255, 28, 218, 0.2)
           `,
-          backdropFilter: 'blur(10px)'
+          backdropFilter: 'blur(10px)',
+          marginLeft: isMobile ? '0.5rem' : '0',
+          marginRight: isMobile ? '0.5rem' : '0'
         }}>
           {/* Título */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-wide leading-tight mb-4 md:mb-6" style={{

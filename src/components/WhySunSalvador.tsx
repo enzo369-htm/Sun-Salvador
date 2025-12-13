@@ -64,12 +64,18 @@ function WhySunSalvador() {
         <div className="backdrop-blur-md inline-block w-full text-center mb-6 py-3" style={{ 
           backgroundColor: 'rgba(0, 19, 255, 0.6)',
           border: '6px solid #000',
-          boxShadow: `
+          boxShadow: isMobile ? `
+            8px 8px 0px rgba(0,0,0,0.9),
+            16px 16px 0px rgba(0,0,0,0.5),
+            inset 0 0 25px rgba(0, 19, 255, 0.2)
+          ` : `
             15px 15px 0px rgba(0,0,0,0.9),
             30px 30px 0px rgba(0,0,0,0.5),
             inset 0 0 25px rgba(0, 19, 255, 0.2)
           `,
-          padding: isMobile ? '1rem 1.5rem' : '1.5rem 2rem'
+          padding: isMobile ? '1rem 1.5rem' : '1.5rem 2rem',
+          marginLeft: isMobile ? '0.5rem' : '0',
+          marginRight: isMobile ? '0.5rem' : '0'
         }}>
           <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-wider" style={{ 
             color: '#FFF',
@@ -135,7 +141,11 @@ function WhySunSalvador() {
                     style={{
                       backgroundColor: 'rgba(0, 19, 255, 0.4)',
                       border: '6px solid #000',
-                      boxShadow: `
+                      boxShadow: isMobile ? `
+                        8px 8px 0px rgba(0,0,0,0.9),
+                        16px 16px 0px rgba(0,0,0,0.5),
+                        inset 0 0 20px rgba(0, 19, 255, 0.2)
+                      ` : `
                         12px 12px 0px rgba(0,0,0,0.9),
                         24px 24px 0px rgba(0,0,0,0.5),
                         inset 0 0 20px rgba(0, 19, 255, 0.2)
@@ -147,7 +157,9 @@ function WhySunSalvador() {
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'center',
-                      gap: '1rem'
+                      gap: '1rem',
+                      marginLeft: isMobile ? '0.5rem' : '0',
+                      marginRight: isMobile ? '0.5rem' : '0'
                     }}
                   >
                     <h3 className="font-black text-white" style={{
