@@ -58,38 +58,57 @@ function About() {
           </h2>
           
           {/* Contenedor del carrusel */}
-          <div className="relative overflow-hidden" style={{ minHeight: '200px', width: '100%', paddingLeft: '0.5rem', paddingRight: '0.5rem' }}>
-            <div 
-              className="flex transition-transform duration-1000 ease-in-out"
-              style={{
-                transform: `translateX(calc(-${currentIndex} * 100%))`,
-                display: 'flex'
-              }}
-            >
-              {phrases.map((phrase, index) => (
-                <div
-                  key={index}
-                  style={{
-                    minWidth: '100%',
-                    width: '100%',
-                    flexShrink: 0,
-                    flexGrow: 0,
-                    paddingLeft: '0.5rem',
-                    paddingRight: '0.5rem',
-                    boxSizing: 'border-box'
-                  }}
-                >
-                  <div className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed font-bold font-primary" style={{
-                    fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontWeight: 400,
-                    letterSpacing: '0.05em',
-                    textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)',
-                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.6))'
-                  }}>
-                    {phrase}
+          <div className="relative" style={{ 
+            minHeight: '200px', 
+            width: '100%',
+            paddingLeft: '0.5rem', 
+            paddingRight: '0.5rem'
+          }}>
+            <div style={{
+              overflow: 'hidden',
+              width: '100%',
+              position: 'relative',
+              isolation: 'isolate',
+              contain: 'layout style paint',
+              clipPath: 'inset(0)',
+              WebkitClipPath: 'inset(0)'
+            }}>
+              <div 
+                className="flex transition-transform duration-1000 ease-in-out"
+                style={{
+                  transform: `translateX(calc(-${currentIndex} * 100%))`,
+                  display: 'flex',
+                  willChange: 'transform'
+                }}
+              >
+                {phrases.map((phrase, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      minWidth: '100%',
+                      width: '100%',
+                      flexShrink: 0,
+                      flexGrow: 0,
+                      paddingLeft: '0.5rem',
+                      paddingRight: '0.5rem',
+                      boxSizing: 'border-box',
+                      position: 'relative',
+                      overflow: 'hidden'
+                    }}
+                  >
+                    <div className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed font-bold font-primary" style={{
+                      fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                      fontWeight: 400,
+                      letterSpacing: '0.05em',
+                      textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.5)',
+                      filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.6))',
+                      contain: 'layout style paint'
+                    }}>
+                      {phrase}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 

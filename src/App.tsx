@@ -5,6 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 const Hero = lazy(() => import('./components/Hero'));
 const FlyerSection = lazy(() => import('./components/FlyerSection'));
 const About = lazy(() => import('./components/About'));
+const Artists = lazy(() => import('./components/Artists'));
 const Tickets = lazy(() => import('./components/Tickets'));
 const WhySunSalvador = lazy(() => import('./components/WhySunSalvador'));
 const FinalCTA = lazy(() => import('./components/FinalCTA'));
@@ -75,6 +76,12 @@ function App() {
           <ErrorBoundary>
             <Suspense fallback={<SectionSkeleton />}>
               <About />
+            </Suspense>
+          </ErrorBoundary>
+
+          <ErrorBoundary>
+            <Suspense fallback={<SectionSkeleton />}>
+              <Artists />
             </Suspense>
           </ErrorBoundary>
 

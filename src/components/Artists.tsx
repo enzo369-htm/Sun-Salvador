@@ -3,12 +3,8 @@ import { useState, useRef } from 'react';
 
 // Función helper para codificar correctamente las rutas de imágenes
 const getImageUrl = (path: string): string => {
-  // Vite sirve archivos de public directamente
-  // Para archivos con espacios, codificamos
-  if (path.includes(' ')) {
-    return encodeURI(path);
-  }
-  return path;
+  const encodedPath = encodeURI(path);
+  return `${encodedPath}?v=3`;
 };
 
 function Artists() {
@@ -39,19 +35,19 @@ function Artists() {
   const artists = [
     { 
       name: 'HOLLYWOOD BUNGALOWS',
-      image: '/HOLLY.jpg',
+      image: '/nuevaholly.png',
       info: 'Hollywood Bungalows es un Trío de Rock Alternativo creado en Jujuy, Argentina. Con su primer disco y su estética particular volcada en sus vivos y videoclips, llegaron a ser destacados como interés cultural en su provincia, así como también, a conquistar el reconocimiento de expertos, de sus pares y del público (ganadores de La Bienal 2021/2022, USINA TV a los mejores videoclips en pandemia, seleccionados en EL NOA TIENE QUE ANDAR 2021 y Experiencia Emergente 2022). Con sus primeras giras nacionales ya lograron pisar escenarios importantes en las principales ciudades de Argentina, como: Primavera Sound, Festival Ciudad emergente, La Bienal en CC Recoleta, Carnaval de los Tekis, entre otros; Actualmente se encuentran grabando y creando su segundo material discográfico.',
       spotify: 'https://open.spotify.com/intl-es/artist/4R8wRxSAhFbsZzHTScrFLv?si=ug7vk3-URMK8nct5llGkyw'
     },
     { 
       name: 'BENITO CERATI',
-      image: '/BENITO CERATI.png',
+      image: '/nuevabenito.png',
       info: 'BENITO CERATI nació el 26 de noviembre de 1993 en Santiago de Chile. Creció en un ambiente rodeado de instrumentos y música, características que lo llevaron a construir su identidad artística casi desde su nacimiento. A los 18 años formó Zero Kill, grupo con el que editó 4 álbumes, los dos primeros producidos por Tweety González: "Trip Tour", "Alien Head", "Unisex" y "Lapsus". Con la banda recorrió escenarios de Argentina y Latinoamérica, presentándose en festivales de renombre como Ruido Fest, Personal Fest, Lollapalooza y Vive Latino. En 2022 inició su carrera solista con su disco debut "SHASEI", ganador del Premio Gardel 2023 a Mejor álbum de Pop Alternativo.',
       spotify: 'https://open.spotify.com/intl-es/artist/13QnAhCICgwMtr6HPWoRbH?si=aiZdJYbIR2meH4WacSXO9w'
     },
     { 
       name: 'PEQUEÑO TIRANO',
-      image: '/pequeno tirano.png',
+      image: '/nuevapequeno.png',
       info: 'Pequeño Tirano es una banda jujeño-bonaerense nacida en el 2022, en la Ciudad de Buenos Aires, conformada por Luciano Ferreira (saxofón), Benjamin Yécora (guitarra eléctrica), Matías Paiva (batería), Tomas Longombardo (bajo eléctrico) y Matías Fernández (teclado/piano). La banda propone una experiencia con potencia e identidad, fusionando jazz, funk y rock.',
       spotify: 'https://open.spotify.com/intl-es/artist/6s9Yr18BfnbAUSSW1apWGC?si=fTlUbi5NTtGCktZyeCCiPw'
     },
@@ -179,11 +175,6 @@ function Artists() {
                           </div>
                         )}
                       </div>
-
-                      {/* Nombre */}
-                      <h3 className="text-3xl md:text-4xl font-black text-center tracking-tight text-black mb-6">
-                        {artist.name}
-                      </h3>
 
                       {/* Información */}
                       <div className="border-4 border-black p-6 mb-6" style={{ backgroundColor: '#0013FF' }}>
