@@ -70,7 +70,7 @@ function DatePlace() {
                   fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                   fontWeight: 400,
                   letterSpacing: '0.05em'
-                }}>2025</p>
+                }}>2026</p>
               </div>
             </div>
           </div>
@@ -98,7 +98,7 @@ function DatePlace() {
                   fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
                   fontWeight: 400,
                   letterSpacing: '0.05em'
-                }}>1501</p>
+                }}>1593</p>
                 <p className="text-lg font-black mt-2" style={{ 
                   color: '#0013FF',
                   fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',

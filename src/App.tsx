@@ -103,7 +103,7 @@ function App() {
             fontWeight: 400,
             letterSpacing: '0.05em'
           }}>
-            © 2025 SUN SALVADOR FESTIVAL • JUJUY, ARGENTINA
+            © 2026 SUN SALVADOR FESTIVAL • JUJUY, ARGENTINA
           </p>
         </footer>
       </div>

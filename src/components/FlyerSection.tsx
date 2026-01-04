@@ -111,19 +111,6 @@ function FlyerSection() {
         .group:hover {
           filter: brightness(1.1);
         }
-        .group::after {
-          content: '👆';
-          position: absolute;
-          top: -10px;
-          right: -10px;
-          font-size: 1.2rem;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-          pointer-events: none;
-        }
-        .group:hover::after {
-          opacity: 1;
-        }
       `}</style>
       {/* Gradiente de transición al inicio - continúa desde el Hero */}
       <div 
@@ -190,7 +177,7 @@ function FlyerSection() {
                   paddingLeft: isMobile ? '0.75rem' : '1rem',
                   paddingRight: isMobile ? '0.75rem' : '1rem'
                 }}>
-                  SABADO 17 DE ENERO - DIONISIO (AV BOLIVIA 1501)
+                  SABADO 17 DE ENERO - DIONISIO (AV BOLIVIA 1593)
                 </p>
               </div>
               
