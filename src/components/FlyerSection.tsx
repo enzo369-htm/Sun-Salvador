@@ -137,7 +137,11 @@ function FlyerSection() {
         <div className="relative inline-block" style={{
           backgroundColor: 'rgba(0, 19, 255, 0.4)',
           border: isMobile ? '6px solid #000' : '10px solid #000',
-          boxShadow: `
+          boxShadow: isMobile ? `
+            4px 4px 0px rgba(0,0,0,0.9),
+            8px 8px 0px rgba(0,0,0,0.5),
+            inset 0 0 20px rgba(0, 19, 255, 0.2)
+          ` : `
             20px 20px 0px rgba(0,0,0,0.9),
             40px 40px 0px rgba(0,0,0,0.5),
             inset 0 0 35px rgba(0, 19, 255, 0.2)
@@ -164,7 +168,11 @@ function FlyerSection() {
                   textShadow: '3px 3px 0px #000, 5px 5px 0px rgba(0,0,0,0.5)',
                   WebkitTextStroke: '1.5px #000',
                   letterSpacing: '0.05em',
-                  boxShadow: `
+                  boxShadow: isMobile ? `
+                    3px 3px 0px rgba(0,0,0,0.9),
+                    6px 6px 0px rgba(0,0,0,0.5),
+                    inset 0 0 10px rgba(255, 28, 218, 0.2)
+                  ` : `
                     12px 12px 0px rgba(0,0,0,0.9),
                     24px 24px 0px rgba(0,0,0,0.5),
                     inset 0 0 15px rgba(255, 28, 218, 0.2)
@@ -430,7 +438,11 @@ function FlyerSection() {
                     textShadow: '3px 3px 0px #000, 5px 5px 0px rgba(0,0,0,0.5)',
                     WebkitTextStroke: '1.5px #000',
                     letterSpacing: '0.05em',
-                    boxShadow: `
+                    boxShadow: isMobile ? `
+                      3px 0px 0px rgba(0,0,0,0.9),
+                      6px 0px 0px rgba(0,0,0,0.5),
+                      inset 0 0 10px rgba(255, 28, 218, 0.2)
+                    ` : `
                       12px 0px 0px rgba(0,0,0,0.9),
                       24px 0px 0px rgba(0,0,0,0.5),
                       inset 0 0 15px rgba(255, 28, 218, 0.2)

@@ -116,18 +116,15 @@ function FinalCTA() {
           backdropFilter: 'blur(10px)',
           padding: isMobile ? '1rem 1.5rem' : '1.5rem 2rem'
         }}>
-          <button
-            onClick={() => {
-              scrollToTickets();
-              // Tracking de evento (preparado para analytics)
-              // gtag('event', 'click', { event_category: 'CTA', event_label: 'Comprar Entrada Ahora' });
-            }}
-            onKeyDown={handleKeyDown}
+          <a
+            href="https://clubtopado.com.ar/tickets/155/SunSalvador"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group relative px-6 py-4 md:px-12 md:py-7 font-black text-xl sm:text-2xl md:text-3xl lg:text-4xl
                        transition-all duration-300 transform hover:scale-110 focus:scale-110
                        active:scale-95 focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:ring-offset-2
-                       inline-block cursor-pointer min-h-[44px]"
-            aria-label="Comprar entrada ahora - Ir a sección de entradas"
+                       inline-block cursor-pointer min-h-[44px] no-underline"
+            aria-label="Comprar entrada ahora - Abre en nueva pestaña"
             style={{
               backgroundColor: 'transparent',
               color: '#FF1CDA',
@@ -142,11 +139,17 @@ function FinalCTA() {
               WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
               WebkitTextFillColor: '#FF1CDA',
               paintOrder: 'stroke fill',
-              filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))'
+              filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))',
+              textDecoration: 'none',
+              display: 'inline-block'
+            }}
+            onClick={() => {
+              // Tracking de evento (preparado para analytics)
+              // gtag('event', 'click', { event_category: 'CTA', event_label: 'Comprar Entrada Ahora' });
             }}
           >
             COMPRAR ENTRADA AHORA
-          </button>
+          </a>
         </div>
 
       </div>
