@@ -4,7 +4,7 @@ function About() {
   const phrases = [
     "La ciudad de San Salvador de Jujuy se prepara para recibir una propuesta musical innovadora para este enero en la capital: el lanzamiento de la primera edición del Festival Sun Salvador",
     "Impulsado por la banda local Hollywood Bungalows, el festival surge del deseo de crear un punto de encuentro distinto para quienes buscan nuevas experiencias sonoras en la provincia.",
-    "Esta primera edición reúne artistas locales y nacionales, con un hito histórico para Jujuy: la llegada por primera vez de Benito Cerati junto a su banda desde Buenos Aires.",
+    "Esta primera edición reúne artistas locales y nacionales, con un hito histórico para Jujuy: la llegada por primera vez de Lichi junto a su banda desde Buenos Aires.",
     "Sun Salvador es un evento que promete ser el epicentro del indie rock y la música alternativa en la región año a año, y vos podes vivir la primera edición."
   ];
 
@@ -23,6 +23,14 @@ function About() {
   const goToSlide = useCallback((index: number) => {
     setCurrentIndex(index);
   }, []);
+
+  const goToPrevious = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + phrases.length) % phrases.length);
+  }, [phrases.length]);
+
+  const goToNext = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+  }, [phrases.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,6 +88,7 @@ function About() {
             paddingLeft: '0.5rem', 
             paddingRight: '0.5rem'
           }}>
+            {/* Contenedor interno con overflow hidden */}
             <div style={{
               overflow: 'hidden',
               width: '100%',
@@ -128,29 +137,62 @@ function About() {
             </div>
           </div>
 
-          {/* Indicadores de posición */}
-          <div className="flex justify-center gap-2 mt-6" role="tablist" aria-label="Navegación del carrusel">
-            {phrases.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                role="tab"
-                aria-selected={index === currentIndex}
-                aria-label={`Ir a slide ${index + 1}`}
-                className="transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 rounded"
-                style={{
-                  width: index === currentIndex ? '2rem' : '0.75rem',
-                  height: '0.75rem',
-                  minWidth: '0.75rem',
-                  minHeight: '0.75rem',
-                  backgroundColor: index === currentIndex ? '#F2C12E' : 'rgba(255, 255, 255, 0.4)',
-                  border: '2px solid #000',
-                  borderRadius: '0.5rem',
-                  cursor: 'pointer'
-                }}
-                onClick={() => goToSlide(index)}
-              />
-            ))}
+          {/* Indicadores de posición con flechas */}
+          <div className="flex items-center justify-center gap-3 mt-6" role="tablist" aria-label="Navegación del carrusel">
+            {/* Flecha izquierda */}
+            <button
+              onClick={goToPrevious}
+              className="w-10 h-10 md:w-12 md:h-12 border-3 md:border-4 border-black flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2"
+              style={{
+                backgroundColor: '#FF1CDA',
+                boxShadow: '4px 4px 0px rgba(0,0,0,0.8)'
+              }}
+              aria-label="Anterior"
+            >
+              <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Indicadores */}
+            <div className="flex gap-2">
+              {phrases.map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  role="tab"
+                  aria-selected={index === currentIndex}
+                  aria-label={`Ir a slide ${index + 1}`}
+                  className="transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 rounded"
+                  style={{
+                    width: index === currentIndex ? '2rem' : '0.75rem',
+                    height: '0.75rem',
+                    minWidth: '0.75rem',
+                    minHeight: '0.75rem',
+                    backgroundColor: index === currentIndex ? '#F2C12E' : 'rgba(255, 255, 255, 0.4)',
+                    border: '2px solid #000',
+                    borderRadius: '0.5rem',
+                    cursor: 'pointer'
+                  }}
+                  onClick={() => goToSlide(index)}
+                />
+              ))}
+            </div>
+
+            {/* Flecha derecha */}
+            <button
+              onClick={goToNext}
+              className="w-10 h-10 md:w-12 md:h-12 border-3 md:border-4 border-black flex items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2"
+              style={{
+                backgroundColor: '#FF1CDA',
+                boxShadow: '4px 4px 0px rgba(0,0,0,0.8)'
+              }}
+              aria-label="Siguiente"
+            >
+              <svg className="w-6 h-6 md:w-8 md:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>

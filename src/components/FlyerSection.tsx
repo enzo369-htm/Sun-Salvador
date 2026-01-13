@@ -18,19 +18,22 @@ const artists = [
     name: 'HOLLYWOOD BUNGALOWS',
     image: '/nuevaholly.png',
     info: 'Hollywood Bungalows es un Trío de Rock Alternativo creado en Jujuy, Argentina. Con su primer disco y su estética particular volcada en sus vivos y videoclips, llegaron a ser destacados como interés cultural en su provincia, así como también, a conquistar el reconocimiento de expertos, de sus pares y del público (ganadores de La Bienal 2021/2022, USINA TV a los mejores videoclips en pandemia, seleccionados en EL NOA TIENE QUE ANDAR 2021 y Experiencia Emergente 2022). Con sus primeras giras nacionales ya lograron pisar escenarios importantes en las principales ciudades de Argentina, como: Primavera Sound, Festival Ciudad emergente, La Bienal en CC Recoleta, Carnaval de los Tekis, entre otros; Actualmente se encuentran grabando y creando su segundo material discográfico.',
-    spotify: 'https://open.spotify.com/intl-es/artist/4R8wRxSAhFbsZzHTScrFLv?si=ug7vk3-URMK8nct5llGkyw'
+    spotify: 'https://open.spotify.com/intl-es/artist/4R8wRxSAhFbsZzHTScrFLv?si=ug7vk3-URMK8nct5llGkyw',
+    color: '#FFFFFF'
   },
-  { 
-    name: 'BENITO CERATI',
-    image: '/nuevabenito.png',
-    info: 'BENITO CERATI nació el 26 de noviembre de 1993 en Santiago de Chile. Creció en un ambiente rodeado de instrumentos y música, características que lo llevaron a construir su identidad artística casi desde su nacimiento. A los 18 años formó Zero Kill, grupo con el que editó 4 álbumes, los dos primeros producidos por Tweety González: "Trip Tour", "Alien Head", "Unisex" y "Lapsus". Con la banda recorrió escenarios de Argentina y Latinoamérica, presentándose en festivales de renombre como Ruido Fest, Personal Fest, Lollapalooza y Vive Latino. En 2022 inició su carrera solista con su disco debut "SHASEI", ganador del Premio Gardel 2023 a Mejor álbum de Pop Alternativo.',
-    spotify: 'https://open.spotify.com/intl-es/artist/13QnAhCICgwMtr6HPWoRbH?si=aiZdJYbIR2meH4WacSXO9w'
-  },
+    { 
+      name: 'LICHI',
+      image: '/lichi2.png',
+      info: 'Después de pasar por el festival Lollapalooza y presentar su disco en Niceto, Lichi llega junto a su banda por primera vez a Jujuy para presentar ¡COCOLICHE!, una aventura de rock psicodélico que se sirve de referencias clásicas y no tanto para trazar su propio camino en el cancionero de la música nacional. El músico, comunicador y activista LGBTIQ abrirá su 2026 presentándose en la primera edición del festival Sun Salvador.',
+      spotify: 'https://open.spotify.com/intl-es/artist/1VJpLdCb3HI6WfG3uUA9ht?si=p2fcsiukRsSI_YscNjnWHA',
+      color: '#F2C12E'
+    },
   { 
     name: 'PEQUEÑO TIRANO',
     image: '/nuevapequeno.png',
     info: 'Pequeño Tirano es una banda jujeño-bonaerense nacida en el 2022, en la Ciudad de Buenos Aires, conformada por Luciano Ferreira (saxofón), Benjamin Yécora (guitarra eléctrica), Matías Paiva (batería), Tomas Longombardo (bajo eléctrico) y Matías Fernández (teclado/piano). La banda propone una experiencia con potencia e identidad, fusionando jazz, funk y rock.',
-    spotify: 'https://open.spotify.com/intl-es/artist/6s9Yr18BfnbAUSSW1apWGC?si=fTlUbi5NTtGCktZyeCCiPw'
+    spotify: 'https://open.spotify.com/intl-es/artist/6s9Yr18BfnbAUSSW1apWGC?si=fTlUbi5NTtGCktZyeCCiPw',
+    color: '#FF1CDA'
   },
 ];
 
@@ -183,50 +186,7 @@ function FlyerSection() {
               
               {/* Contenedor interno para los nombres con padding */}
               <div style={{ padding: isMobile ? '1rem 1rem 1rem 1rem' : '0.5rem 2rem 0.5rem 2rem', marginTop: isMobile ? '1.5rem' : '1rem', marginBottom: isMobile ? '1rem' : '0.5rem', display: 'flex', flexDirection: 'column', gap: isMobile ? '1rem' : '0.5rem', alignItems: 'center', width: '100%', flex: 1 }}>
-              {/* BENITO CERATI - MÁS GRANDE Y ANCHO */}
-              <div 
-                onClick={() => handleArtistClick('BENITO CERATI')}
-                className="cursor-pointer transition-all duration-300 hover:scale-105 group"
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: isMobile ? '1rem' : '0.75rem',
-                  width: '100%',
-                  position: 'relative'
-                }}
-                title="Click para más información"
-              >
-                <div
-                  className="text-center"
-                  style={{
-                    color: '#FFFFFF',
-                    fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
-                    fontSize: isMobile ? 'clamp(2.2rem, 7vw, 3.5rem)' : 'clamp(2rem, 4.5vw, 3.8rem)',
-                    fontWeight: 400,
-                    letterSpacing: '-0.02em',
-                    textShadow: `
-                      8px 12px 0px #000,
-                      10px 14px 0px rgba(0,0,0,0.8)
-                    `,
-                    WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
-                    WebkitTextFillColor: '#FFFFFF',
-                    paintOrder: 'stroke fill',
-                    lineHeight: '1.1',
-                    textTransform: 'uppercase',
-                    transform: 'rotate(-0.5deg)',
-                    filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))',
-                    position: 'relative'
-                  }}
-                >
-                  <span style={{ fontSize: '0.7em', display: 'inline-block', transform: 'rotate(-5deg)' }}>~</span>
-                  {' '}BENITO CERATI{' '}
-                  <span style={{ fontSize: '0.7em', display: 'inline-block', transform: 'rotate(5deg)' }}>~</span>
-                </div>
-              </div>
-
-              {/* HOLLYWOOD BUNGALOWS - tamaño medio */}
+              {/* HOLLYWOOD BUNGALOWS - primero */}
               <div 
                 onClick={() => handleArtistClick('HOLLYWOOD BUNGALOWS')}
                 className="cursor-pointer transition-all duration-300 hover:scale-105 group"
@@ -258,12 +218,57 @@ function FlyerSection() {
                     paintOrder: 'stroke fill',
                     lineHeight: '1',
                     textTransform: 'uppercase',
-                    transform: 'rotate(1deg)',
+                    transform: 'rotate(0deg)',
+                    filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))',
+                    position: 'relative',
+                    textAlign: 'center',
+                    width: '100%'
+                  }}
+                >
+                  HOLLYWOOD BUNGALOWS
+                </div>
+              </div>
+
+              {/* LICHI - segundo */}
+              <div 
+                onClick={() => handleArtistClick('LICHI')}
+                className="cursor-pointer transition-all duration-300 hover:scale-105 group"
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: isMobile ? '1rem' : '0.75rem',
+                  width: '100%',
+                  position: 'relative'
+                }}
+                title="Click para más información"
+              >
+                <div
+                  className="text-center"
+                  style={{
+                    color: '#FFFFFF',
+                    fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
+                    fontSize: isMobile ? 'clamp(1.9rem, 6.2vw, 3.2rem)' : 'clamp(1.8rem, 4.2vw, 3.5rem)',
+                    fontWeight: 400,
+                    letterSpacing: '-0.02em',
+                    textShadow: `
+                      8px 12px 0px #000,
+                      10px 14px 0px rgba(0,0,0,0.8)
+                    `,
+                    WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
+                    WebkitTextFillColor: '#FFFFFF',
+                    paintOrder: 'stroke fill',
+                    lineHeight: '1.1',
+                    textTransform: 'uppercase',
+                    transform: 'rotate(0deg)',
                     filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))',
                     position: 'relative'
                   }}
                 >
-                  HOLLYWOOD BUNGALOWS
+                  <span style={{ fontSize: '0.7em', display: 'inline-block', transform: 'rotate(0deg)' }}>~</span>
+                  {' '}LICHI{' '}
+                  <span style={{ fontSize: '0.7em', display: 'inline-block', transform: 'rotate(0deg)' }}>~</span>
                 </div>
               </div>
 
@@ -299,7 +304,7 @@ function FlyerSection() {
                     paintOrder: 'stroke fill',
                     lineHeight: '1.1',
                     textTransform: 'uppercase',
-                    transform: 'rotate(-1deg)',
+                    transform: 'rotate(0deg)',
                     filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))',
                     position: 'relative'
                   }}
@@ -317,7 +322,7 @@ function FlyerSection() {
                   flexWrap: 'wrap',
                   width: '100%'
               }}>
-                <div className="text-center flex items-center justify-center gap-2 flex-wrap" style={{ transform: 'rotate(1deg)', flex: 1 }}>
+                <div className="text-center flex items-center justify-center gap-2 flex-wrap" style={{ transform: 'rotate(0deg)', flex: 1 }}>
                   <span style={{
                     color: '#FF1CDA',
                     fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
@@ -333,7 +338,7 @@ function FlyerSection() {
                     WebkitTextFillColor: '#FF1CDA',
                     paintOrder: 'stroke fill',
                     fontStyle: 'normal',
-                    transform: 'skew(-12deg) rotate(-5deg)',
+                    transform: 'skew(0deg) rotate(0deg)',
                     display: 'inline-block',
                     marginRight: '1rem',
                     textTransform: 'uppercase',

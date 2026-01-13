@@ -113,6 +113,34 @@ function Hero() {
       className="relative min-h-screen flex flex-col items-center justify-center px-2 sm:px-3 pt-16 sm:pt-20 pb-12 sm:pb-16 overflow-hidden"
       aria-label="Hero - Sun Salvador Festival"
     >
+      <style>{`
+        @keyframes pulse-button {
+          0%, 100% {
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.6),
+                        0 0 30px rgba(0, 19, 255, 1),
+                        0 0 60px rgba(0, 19, 255, 0.8),
+                        0 0 90px rgba(0, 19, 255, 0.6),
+                        0 0 120px rgba(0, 19, 255, 0.4),
+                        0 0 150px rgba(0, 19, 255, 0.3),
+                        inset 0 0 30px rgba(0, 19, 255, 0.2),
+                        inset 0 2px 4px rgba(255,255,255,0.4);
+          }
+          50% {
+            box-shadow: 8px 8px 0px rgba(0,0,0,0.6),
+                        0 0 50px rgba(0, 19, 255, 1),
+                        0 0 100px rgba(0, 19, 255, 1),
+                        0 0 150px rgba(0, 19, 255, 0.8),
+                        0 0 200px rgba(0, 19, 255, 0.6),
+                        0 0 250px rgba(0, 19, 255, 0.4),
+                        inset 0 0 40px rgba(0, 19, 255, 0.3),
+                        inset 0 2px 4px rgba(255,255,255,0.6);
+          }
+        }
+        @keyframes shimmer-button {
+          0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+          100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+      `}</style>
       {/* Video de fondo - optimizado para móviles */}
       <video
         ref={videoRef}
@@ -169,8 +197,8 @@ function Hero() {
           <img 
             src="/sun salvador solo@2x.png"
             alt="Sun Salvador Festival"
-            className="w-full max-w-[320px] sm:max-w-xl md:max-w-2xl lg:max-w-3xl h-auto object-contain relative"
-            style={{ filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.5))' }}
+            className="w-full max-w-[280px] sm:max-w-xl md:max-w-2xl lg:max-w-3xl h-auto object-contain relative"
+            style={{ filter: 'drop-shadow(4px 4px 8px rgba(0,0,0,0.5))', marginBottom: '1rem' }}
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -204,27 +232,39 @@ function Hero() {
           href="https://clubtopado.com.ar/evento/155/SunSalvador"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 sm:mt-8 md:mt-16 px-4 py-3 sm:px-6 sm:py-4 md:px-10 md:py-5 font-black text-lg sm:text-xl md:text-2xl lg:text-3xl
+          className="mt-8 sm:mt-8 md:mt-16 px-4 py-3 sm:px-6 sm:py-4 md:px-10 md:py-5 font-black text-lg sm:text-xl md:text-2xl lg:text-3xl
                      border-3 sm:border-4 border-black transition-all duration-300 transform hover:scale-110
                      active:scale-95 focus:scale-110 focus:outline-none focus:ring-4 focus:ring-yellow-300 focus:ring-offset-2
                      inline-block cursor-pointer min-h-[44px] no-underline"
           style={{
-            backgroundColor: 'transparent',
+            background: 'linear-gradient(135deg, rgba(0, 19, 255, 0.5) 0%, rgba(0, 19, 255, 0.4) 50%, rgba(0, 19, 255, 0.5) 100%)',
+            backdropFilter: 'blur(10px)',
             color: '#FF1CDA',
             fontFamily: '"Anton", "Impact", "Arial Black", sans-serif',
             fontSize: 'clamp(1.3rem, 5.5vw, 2.5rem)',
             fontWeight: 400,
-            letterSpacing: '0.05em',
-            textShadow: `
-              8px 12px 0px #000,
-              10px 14px 0px rgba(0,0,0,0.8)
-            `,
-            WebkitTextStroke: 'clamp(3px, 0.5vw, 5px) #000',
+            letterSpacing: '0.1em',
+            textShadow: 'none',
+            WebkitTextStroke: 'clamp(4px, 0.6vw, 6px) #000',
             WebkitTextFillColor: '#FF1CDA',
             paintOrder: 'stroke fill',
-            boxShadow: '8px 8px 0px rgba(0,0,0,0.6)',
+            boxShadow: `
+              8px 8px 0px rgba(0,0,0,0.6),
+              0 0 30px rgba(0, 19, 255, 1),
+              0 0 60px rgba(0, 19, 255, 0.8),
+              0 0 90px rgba(0, 19, 255, 0.6),
+              0 0 120px rgba(0, 19, 255, 0.4),
+              0 0 150px rgba(0, 19, 255, 0.3),
+              inset 0 0 30px rgba(0, 19, 255, 0.2),
+              inset 0 2px 4px rgba(255,255,255,0.4)
+            `,
             filter: 'drop-shadow(0 0 2px rgba(0,0,0,0.3))',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            position: 'relative',
+            borderRadius: '12px',
+            borderWidth: '5px',
+            animation: 'pulse-button 2s ease-in-out infinite',
+            overflow: 'hidden'
           }}
           aria-label="Comprar entrada - Abre en nueva pestaña"
           onClick={() => {
@@ -232,7 +272,21 @@ function Hero() {
             // gtag('event', 'click', { event_category: 'CTA', event_label: 'Hero Button' });
           }}
         >
-          ¡COMPRAR MI ENTRADA!
+          {/* Efecto shimmer */}
+          <div style={{
+            position: 'absolute',
+            top: '-50%',
+            left: '-50%',
+            width: '200%',
+            height: '200%',
+            background: 'linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.5) 50%, transparent 70%)',
+            animation: 'shimmer-button 3s infinite',
+            pointerEvents: 'none',
+            zIndex: 1
+          }} />
+          <span style={{ position: 'relative', zIndex: 2 }}>
+            ¡COMPRAR MI ENTRADA!
+          </span>
         </a>
 
         {/* Flecha indicadora hacia abajo */}
@@ -244,7 +298,7 @@ function Hero() {
           aria-label="Desplazarse hacia abajo"
         >
           <svg 
-            className="w-12 h-12 md:w-16 md:h-16" 
+            className="w-8 h-8 md:w-10 md:h-10" 
             fill="none" 
             stroke="#F2C12E" 
             viewBox="0 0 24 24"
