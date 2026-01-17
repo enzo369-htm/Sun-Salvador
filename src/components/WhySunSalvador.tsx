@@ -109,7 +109,7 @@ function WhySunSalvador() {
         {/* Carrusel de características */}
         <div className="relative" style={{ minHeight: '300px', padding: isMobile ? '0 0.5rem' : '0' }}>
           {/* Contenedor del carrusel */}
-          <div className="relative" style={{ minHeight: '300px', width: '100%', paddingLeft: isMobile ? 'calc(0.5rem + 24px)' : '24px', paddingRight: isMobile ? 'calc(0.5rem + 24px)' : '24px', overflow: 'hidden', marginLeft: isMobile ? '0.5rem' : '0', marginRight: isMobile ? '0.5rem' : '0' }}>
+          <div className="relative" style={{ minHeight: '300px', width: '100%', paddingLeft: isMobile ? '0.5rem' : '0', paddingRight: isMobile ? '0.5rem' : '0', overflow: 'hidden', marginLeft: isMobile ? '0.5rem' : '0', marginRight: isMobile ? '0.5rem' : '0', clipPath: 'inset(0)', WebkitClipPath: 'inset(0)' }}>
             <div 
               className="flex"
               style={{
@@ -130,7 +130,8 @@ function WhySunSalvador() {
                     flexShrink: 0,
                     flexGrow: 0,
                     boxSizing: 'border-box',
-                    padding: '0'
+                    padding: '0',
+                    overflow: 'hidden'
                   }}
                 >
                   <div
@@ -141,14 +142,10 @@ function WhySunSalvador() {
                       boxShadow: isMobile ? `
                         0 8px 0px rgba(0,0,0,0.9),
                         0 16px 0px rgba(0,0,0,0.5),
-                        8px 8px 0px rgba(0,0,0,0.9),
-                        16px 16px 0px rgba(0,0,0,0.5),
                         inset 0 0 20px rgba(0, 19, 255, 0.2)
                       ` : `
                         0 12px 0px rgba(0,0,0,0.9),
                         0 24px 0px rgba(0,0,0,0.5),
-                        12px 12px 0px rgba(0,0,0,0.9),
-                        24px 24px 0px rgba(0,0,0,0.5),
                         inset 0 0 20px rgba(0, 19, 255, 0.2)
                       `,
                       backdropFilter: 'blur(10px)',
