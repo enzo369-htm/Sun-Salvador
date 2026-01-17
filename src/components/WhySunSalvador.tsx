@@ -111,12 +111,14 @@ function WhySunSalvador() {
           {/* Contenedor del carrusel */}
           <div className="relative overflow-hidden" style={{ minHeight: '300px', width: '100%' }}>
             <div 
-              className="flex transition-transform duration-700 ease-out"
+              className="flex"
               style={{
                 transform: `translateX(calc(-${currentIndex} * 100%))`,
                 display: 'flex',
                 willChange: 'transform',
-                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                transition: 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                WebkitTransition: '-webkit-transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                msTransition: 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)'
               }}
             >
               {features.map((feature, index) => (
@@ -128,11 +130,12 @@ function WhySunSalvador() {
                     flexShrink: 0,
                     flexGrow: 0,
                     boxSizing: 'border-box',
-                    padding: '0 0.5rem'
+                    padding: '0 0.5rem',
+                    opacity: index === currentIndex ? 1 : 0.7
                   }}
                 >
                   <div
-                    className="transform transition-all duration-300"
+                    className="transform"
                     style={{
                       backgroundColor: 'rgba(0, 19, 255, 0.4)',
                       border: '6px solid #000',
