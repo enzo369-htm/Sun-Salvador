@@ -111,10 +111,12 @@ function WhySunSalvador() {
           {/* Contenedor del carrusel */}
           <div className="relative overflow-hidden" style={{ minHeight: '300px', width: '100%' }}>
             <div 
-              className="flex transition-transform duration-700 ease-in-out"
+              className="flex transition-transform duration-700 ease-out"
               style={{
                 transform: `translateX(calc(-${currentIndex} * 100%))`,
-                display: 'flex'
+                display: 'flex',
+                willChange: 'transform',
+                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
               }}
             >
               {features.map((feature, index) => (

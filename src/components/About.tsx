@@ -92,11 +92,12 @@ function About() {
               WebkitClipPath: 'inset(0)'
             }}>
               <div 
-                className="flex transition-transform duration-1000 ease-in-out"
+                className="flex transition-transform duration-700 ease-out"
                 style={{
                   transform: `translateX(calc(-${currentIndex} * 100%))`,
                   display: 'flex',
-                  willChange: 'transform'
+                  willChange: 'transform',
+                  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
                 }}
               >
                 {phrases.map((phrase, index) => (
