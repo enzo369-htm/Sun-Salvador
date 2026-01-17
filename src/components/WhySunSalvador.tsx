@@ -107,7 +107,7 @@ function WhySunSalvador() {
         </div>
 
         {/* Carrusel de características */}
-        <div className="relative" style={{ minHeight: '300px' }}>
+        <div className="relative" style={{ minHeight: '300px', backgroundColor: 'rgba(0, 19, 255, 0.4)' }}>
           {/* Contenedor del carrusel */}
           <div className="relative overflow-hidden" style={{ minHeight: '300px', width: '100%' }}>
             <div 
@@ -116,9 +116,9 @@ function WhySunSalvador() {
                 transform: `translateX(calc(-${currentIndex} * 100%))`,
                 display: 'flex',
                 willChange: 'transform',
-                transition: 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                WebkitTransition: '-webkit-transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                msTransition: 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                transition: 'transform 0.5s ease-in-out',
+                WebkitTransition: '-webkit-transform 0.5s ease-in-out',
+                width: '100%'
               }}
             >
               {features.map((feature, index) => (
@@ -130,8 +130,7 @@ function WhySunSalvador() {
                     flexShrink: 0,
                     flexGrow: 0,
                     boxSizing: 'border-box',
-                    padding: '0 0.5rem',
-                    opacity: index === currentIndex ? 1 : 0.7
+                    padding: isMobile ? '0 0.5rem' : '0 0.5rem'
                   }}
                 >
                   <div

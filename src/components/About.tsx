@@ -97,9 +97,8 @@ function About() {
                   transform: `translateX(calc(-${currentIndex} * 100%))`,
                   display: 'flex',
                   willChange: 'transform',
-                  transition: 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                  WebkitTransition: '-webkit-transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-                  msTransition: 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)'
+                  transition: 'transform 0.5s ease-in-out',
+                  WebkitTransition: '-webkit-transform 0.5s ease-in-out'
                 }}
               >
                 {phrases.map((phrase, index) => (
@@ -114,8 +113,7 @@ function About() {
                       paddingRight: '0.5rem',
                       boxSizing: 'border-box',
                       position: 'relative',
-                      overflow: 'hidden',
-                      opacity: index === currentIndex ? 1 : 0.7
+                      overflow: 'hidden'
                     }}
                   >
                     <div className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed font-bold font-primary" style={{
