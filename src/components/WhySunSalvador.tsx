@@ -107,7 +107,7 @@ function WhySunSalvador() {
         </div>
 
         {/* Carrusel de características */}
-        <div className="relative" style={{ minHeight: '300px', backgroundColor: 'rgba(0, 19, 255, 0.4)' }}>
+        <div className="relative" style={{ minHeight: '300px', backgroundColor: 'rgba(0, 19, 255, 0.4)', padding: isMobile ? '0 0.5rem' : '0' }}>
           {/* Contenedor del carrusel */}
           <div className="relative overflow-hidden" style={{ minHeight: '300px', width: '100%' }}>
             <div 
@@ -130,7 +130,7 @@ function WhySunSalvador() {
                     flexShrink: 0,
                     flexGrow: 0,
                     boxSizing: 'border-box',
-                    padding: isMobile ? '0 0.5rem' : '0 0.5rem'
+                    padding: '0'
                   }}
                 >
                   <div
