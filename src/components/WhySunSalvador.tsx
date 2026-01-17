@@ -109,7 +109,7 @@ function WhySunSalvador() {
         {/* Carrusel de características */}
         <div className="relative" style={{ minHeight: '300px', padding: isMobile ? '0 0.5rem' : '0' }}>
           {/* Contenedor del carrusel */}
-          <div className="relative overflow-hidden" style={{ minHeight: '300px', width: '100%' }}>
+          <div className="relative" style={{ minHeight: '300px', width: '100%', paddingLeft: isMobile ? '0.5rem' : '0', paddingRight: isMobile ? '0.5rem' : '0', overflow: 'hidden', clipPath: 'inset(0)', WebkitClipPath: 'inset(0)' }}>
             <div 
               className="flex"
               style={{
@@ -155,8 +155,8 @@ function WhySunSalvador() {
                       flexDirection: 'column',
                       justifyContent: 'center',
                       gap: '1rem',
-                      marginLeft: isMobile ? '0.5rem' : '0',
-                      marginRight: isMobile ? '0.5rem' : '0'
+                      marginLeft: '0',
+                      marginRight: '0'
                     }}
                   >
                     <h3 className="font-black text-white" style={{

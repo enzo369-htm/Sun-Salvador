@@ -4,7 +4,6 @@ function About() {
   const phrases = [
     "La ciudad de San Salvador de Jujuy se prepara para recibir una propuesta musical innovadora para este enero en la capital: el lanzamiento de la primera edición del Festival Sun Salvador",
     "Impulsado por la banda local Hollywood Bungalows, el festival surge del deseo de crear un punto de encuentro distinto para quienes buscan nuevas experiencias sonoras en la provincia.",
-    "Esta primera edición reúne artistas locales y nacionales, con un hito histórico para Jujuy: la llegada por primera vez de Lichi junto a su banda desde Buenos Aires.",
     "Sun Salvador es un evento que promete ser el epicentro del indie rock y la música alternativa en la región año a año, y vos podes vivir la primera edición."
   ];
 
