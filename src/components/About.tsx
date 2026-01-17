@@ -32,13 +32,6 @@ function About() {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % phrases.length);
   }, [phrases.length]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % phrases.length);
-    }, 6000); // Cambia cada 6 segundos
-
-    return () => clearInterval(interval);
-  }, [phrases.length]);
 
   return (
     <section id="about" className="relative py-6 md:py-10 px-3 md:px-4 overflow-hidden">

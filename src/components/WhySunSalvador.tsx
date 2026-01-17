@@ -37,13 +37,6 @@ function WhySunSalvador() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % features.length);
-    }, 5000); // Cambia cada 5 segundos
-
-    return () => clearInterval(interval);
-  }, [features.length]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
